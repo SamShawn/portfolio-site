@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom'
 import { ArrowRight, Github, Twitter, Linkedin, Mail, Sparkles } from 'lucide-react'
 import { ProjectCard } from '../components/ProjectCard'
 import { featuredProjects } from '../data/projects'
+import { SOCIAL_URL } from '../data/constants'
 
 export function Home() {
   return (
@@ -54,7 +55,7 @@ export function Home() {
             {/* Social Links */}
             <div className="flex items-center justify-center gap-4 mt-8">
               <a
-                href="https://github.com/yourusername"
+                href={SOCIAL_URL.github}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="p-3 rounded-full bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-400 hover:bg-gray-200 dark:hover:bg-gray-700 hover:text-gray-900 dark:hover:text-white transition-all duration-300 hover:scale-110"
@@ -63,7 +64,7 @@ export function Home() {
                 <Github className="w-5 h-5" />
               </a>
               <a
-                href="https://twitter.com/yourusername"
+                href={SOCIAL_URL.twitter}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="p-3 rounded-full bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-400 hover:bg-gray-200 dark:hover:bg-gray-700 hover:text-blue-400 dark:hover:text-blue-400 transition-all duration-300 hover:scale-110"
@@ -72,7 +73,7 @@ export function Home() {
                 <Twitter className="w-5 h-5" />
               </a>
               <a
-                href="https://linkedin.com/in/yourusername"
+                href={SOCIAL_URL.linkedin}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="p-3 rounded-full bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-400 hover:bg-gray-200 dark:hover:bg-gray-700 hover:text-blue-600 dark:hover:text-blue-400 transition-all duration-300 hover:scale-110"

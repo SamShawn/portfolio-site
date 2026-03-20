@@ -1,4 +1,5 @@
 import { Mail, Github, Linkedin, Twitter, MapPin, Send } from 'lucide-react'
+import { SOCIAL_URL, SOCIAL_DISPLAY } from '../data/constants'
 
 export function Contact() {
   return (
@@ -24,7 +25,7 @@ export function Contact() {
               </h2>
               <div className="space-y-4">
                 <a
-                  href="mailto:your.email@example.com"
+                  href={SOCIAL_URL.email}
                   className="flex items-center gap-4 p-4 rounded-xl bg-white dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-750 transition-all duration-300 border border-gray-200 dark:border-gray-700 hover:shadow-lg group"
                 >
                   <div className="p-3 rounded-lg bg-gradient-to-br from-blue-500 to-blue-600 text-white group-hover:scale-110 transition-transform duration-300">
@@ -32,12 +33,12 @@ export function Contact() {
                   </div>
                   <div>
                     <p className="font-semibold text-gray-900 dark:text-white">Email</p>
-                    <p className="text-gray-600 dark:text-gray-400">your.email@example.com</p>
+                    <p className="text-gray-600 dark:text-gray-400">{SOCIAL_DISPLAY.email}</p>
                   </div>
                 </a>
 
                 <a
-                  href="https://github.com/yourusername"
+                  href={SOCIAL_URL.github}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center gap-4 p-4 rounded-xl bg-white dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-750 transition-all duration-300 border border-gray-200 dark:border-gray-700 hover:shadow-lg group"
@@ -47,12 +48,12 @@ export function Contact() {
                   </div>
                   <div>
                     <p className="font-semibold text-gray-900 dark:text-white">GitHub</p>
-                    <p className="text-gray-600 dark:text-gray-400">github.com/yourusername</p>
+                    <p className="text-gray-600 dark:text-gray-400">{SOCIAL_DISPLAY.github}</p>
                   </div>
                 </a>
 
                 <a
-                  href="https://linkedin.com/in/yourusername"
+                  href={SOCIAL_URL.linkedin}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center gap-4 p-4 rounded-xl bg-white dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-750 transition-all duration-300 border border-gray-200 dark:border-gray-700 hover:shadow-lg group"
@@ -62,12 +63,12 @@ export function Contact() {
                   </div>
                   <div>
                     <p className="font-semibold text-gray-900 dark:text-white">LinkedIn</p>
-                    <p className="text-gray-600 dark:text-gray-400">linkedin.com/in/yourusername</p>
+                    <p className="text-gray-600 dark:text-gray-400">{SOCIAL_DISPLAY.linkedin}</p>
                   </div>
                 </a>
 
                 <a
-                  href="https://twitter.com/yourusername"
+                  href={SOCIAL_URL.twitter}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center gap-4 p-4 rounded-xl bg-white dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-750 transition-all duration-300 border border-gray-200 dark:border-gray-700 hover:shadow-lg group"
@@ -77,7 +78,7 @@ export function Contact() {
                   </div>
                   <div>
                     <p className="font-semibold text-gray-900 dark:text-white">Twitter</p>
-                    <p className="text-gray-600 dark:text-gray-400">@yourusername</p>
+                    <p className="text-gray-600 dark:text-gray-400">{SOCIAL_DISPLAY.twitter}</p>
                   </div>
                 </a>
               </div>
@@ -157,10 +158,10 @@ export function Contact() {
               <p className="mt-6 text-sm text-gray-600 dark:text-gray-400 text-center">
                 或者直接发送邮件到{' '}
                 <a
-                  href="mailto:your.email@example.com"
+                  href={SOCIAL_URL.email}
                   className="text-primary-600 dark:text-primary-400 hover:underline"
                 >
-                  your.email@example.com
+                  {SOCIAL_DISPLAY.email}
                 </a>
               </p>
             </div>
