@@ -22,14 +22,16 @@ export function Home() {
             </div>
 
             <h1 className="text-4xl sm:text-5xl lg:text-7xl font-bold text-gray-900 dark:text-white mb-6">
-              你好，我是
+              你好，我是孙昕
               <span className="block mt-2 bg-gradient-to-r from-primary-600 via-purple-600 to-pink-600 bg-clip-text text-transparent">
-                全栈开发者
+                一名全栈开发者
               </span>
             </h1>
 
             <p className="text-lg sm:text-xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto mb-8">
-              热爱创造优雅的用户体验和高效的解决方案。专注于 React、Node.js 和现代 Web 技术栈。
+              热爱创造优雅的用户体验和高效的解决方案。
+              <br></br>
+              专注于 React、Node.js 和现代 Web 技术栈。
             </p>
 
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">

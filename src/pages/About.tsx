@@ -23,7 +23,7 @@ export function About() {
             </h2>
             <div className="space-y-4 text-gray-600 dark:text-gray-300 leading-relaxed">
               <p>
-                我是一名充满激情的全栈开发者，拥有超过 5 年的软件开发经验。
+                我是孙昕，一名充满激情的全栈开发者，拥有超过 5 年的软件开发经验。
                 我热衷于构建优雅、高效的用户界面和健壮的后端系统。
               </p>
               <p>

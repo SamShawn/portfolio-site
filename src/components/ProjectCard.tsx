@@ -71,9 +71,9 @@ export function ProjectCard({ project }: ProjectCardProps) {
       </div>
 
       {/* Gradient border effect */}
-      <div className="absolute inset-0 rounded-2xl bg-gradient-to-r from-primary-500 via-purple-500 to-pink-500 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" style={{ padding: '2px' }}>
+      {/* <div className="absolute inset-0 rounded-2xl bg-gradient-to-r from-primary-500 via-purple-500 to-pink-500 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" style={{ padding: '2px' }}>
         <div className="w-full h-full bg-white dark:bg-gray-800 rounded-2xl" />
-      </div>
+      </div> */}
     </article>
   )
 }

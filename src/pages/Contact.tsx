@@ -86,7 +86,7 @@ export function Contact() {
             {/* Location */}
             <div className="flex items-center gap-3 text-gray-600 dark:text-gray-400">
               <MapPin className="w-5 h-5" />
-              <span>北京，中国</span>
+              <span>中国</span>
             </div>
           </div>
 

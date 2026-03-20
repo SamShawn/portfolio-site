@@ -21,7 +21,7 @@ function App() {
       <footer className="border-t border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
           <p className="text-center text-gray-600 dark:text-gray-400 text-sm">
-            © 2024 Portfolio. Built with React, TypeScript & Tailwind CSS.
+            © 2026 Samuel Sun. Built with React, TypeScript & Tailwind CSS.
           </p>
         </div>
       </footer>
