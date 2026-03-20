@@ -17,7 +17,7 @@ export const projects: Project[] = [
     title: 'E-Commerce 平台',
     description: '全栈电商平台，包含商品管理、购物车、支付集成和订单追踪功能。使用 Next.js 和 Stripe 实现无缝的购物体验。',
     technologies: ['Next.js', 'Stripe', 'PostgreSQL', 'Redis'],
-    image: 'https://images.unsplash.com/photo-1556742043-9a35b2a3c4b4?w=800&h=400&fit=crop',
+    image: 'https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=800&h=400&fit=crop',
     githubUrl: `https://github.com/${SOCIAL_USERNAME.github}/ecommerce-platform`,
     demoUrl: 'https://shop.example.com',
     featured: true
