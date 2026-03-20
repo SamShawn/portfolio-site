@@ -3,8 +3,10 @@ import { ArrowRight, Github, Twitter, Linkedin, Mail, Sparkles } from 'lucide-re
 import { ProjectCard } from '../components/ProjectCard'
 import { featuredProjects } from '../data/projects'
 import { SOCIAL_URL } from '../data/constants'
+import { useTranslation } from '../i18n/LanguageContext'
 
 export function Home() {
+  const t = useTranslation()
   return (
     <div className="min-h-screen pt-16">
       {/* Hero Section */}
@@ -18,21 +20,24 @@ export function Home() {
             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary-50 dark:bg-primary-900/30 border border-primary-200 dark:border-primary-800 mb-6">
               <Sparkles className="w-4 h-4 text-primary-600 dark:text-primary-400" />
               <span className="text-sm font-semibold text-primary-700 dark:text-primary-300">
-                欢迎来到我的个人作品集
+                {t.home.welcome}
               </span>
             </div>
 
             <h1 className="text-4xl sm:text-5xl lg:text-7xl font-bold text-gray-900 dark:text-white mb-6">
-              你好，我是孙昕
+              {t.home.greeting}
               <span className="block mt-2 bg-gradient-to-r from-primary-600 via-purple-600 to-pink-600 bg-clip-text text-transparent">
-                一名全栈开发者
+                {t.home.title}
               </span>
             </h1>
 
             <p className="text-lg sm:text-xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto mb-8">
-              热爱创造优雅的用户体验和高效的解决方案。
-              <br></br>
-              专注于 React、Node.js 和现代 Web 技术栈。
+              {t.home.description.split('\n').map((line, i) => (
+                <span key={i}>
+                  {line}
+                  {i < t.home.description.split('\n').length - 1 && <br />}
+                </span>
+              ))}
             </p>
 
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
@@ -40,7 +45,7 @@ export function Home() {
                 to="/projects"
                 className="flex items-center gap-2 px-8 py-4 rounded-xl bg-gradient-to-r from-primary-500 to-purple-500 text-white font-semibold hover:from-primary-600 hover:to-purple-600 transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105"
               >
-                查看作品
+                {t.home.viewProjects}
                 <ArrowRight className="w-5 h-5" />
               </Link>
               <Link
@@ -48,7 +53,7 @@ export function Home() {
                 className="flex items-center gap-2 px-8 py-4 rounded-xl border-2 border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 font-semibold hover:border-primary-500 dark:hover:border-primary-500 hover:text-primary-600 dark:hover:text-primary-400 transition-all duration-300"
               >
                 <Mail className="w-5 h-5" />
-                联系我
+                {t.home.contactMe}
               </Link>
             </div>
 
@@ -90,11 +95,11 @@ export function Home() {
       <section className="py-20 lg:py-32">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12 animate-slide-up">
-            <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white mb-4">
-              精选作品
+            <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 dark:text:text-white mb-4">
+              {t.home.featuredProjects}
             </h2>
             <p className="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
-              以下是我的一些代表性项目，展示了我的技术能力和设计理念
+              {t.home.featuredDescription}
             </p>
           </div>
 
@@ -111,7 +116,7 @@ export function Home() {
               to="/projects"
               className="inline-flex items-center gap-2 px-6 py-3 rounded-xl border-2 border-primary-500 text-primary-600 dark:text-primary-400 font-semibold hover:bg-primary-50 dark:hover:bg-primary-900/30 transition-all duration-300"
             >
-              查看所有作品
+              {t.home.viewAllProjects}
               <ArrowRight className="w-5 h-5" />
             </Link>
           </div>
@@ -123,10 +128,10 @@ export function Home() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12 animate-slide-up">
             <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white mb-4">
-              技术栈
+              {t.home.techStack}
             </h2>
             <p className="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
-              我专注于现代 Web 开发技术栈，并持续学习新技术
+              {t.home.techStackDescription}
             </p>
           </div>
 

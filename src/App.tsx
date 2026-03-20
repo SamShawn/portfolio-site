@@ -1,31 +1,43 @@
 import { Routes, Route } from 'react-router-dom'
+import { LanguageProvider, useTranslation } from './i18n/LanguageContext'
 import { Navbar } from './components/Navbar'
 import { Home } from './pages/Home'
 import { Projects } from './pages/Projects'
 import { About } from './pages/About'
 import { Contact } from './pages/Contact'
 
+// Footer 组件（内部组件以使用 Hook）
+function Footer() {
+  const t = useTranslation()
+  const currentYear = new Date().getFullYear()
+
+  return (
+    <footer className="border-t border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <p className="text-center text-gray-600 dark:text-gray-400 text-sm">
+          {t.common.year(currentYear)} {t.common.builtWith}
+        </p>
+      </div>
+    </footer>
+  )
+}
+
 function App() {
   return (
-    <div className="min-h-screen">
-      <Navbar />
-      <main>
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/projects" element={<Projects />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/contact" element={<Contact />} />
-        </Routes>
-      </main>
-      {/* Footer */}
-      <footer className="border-t border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-          <p className="text-center text-gray-600 dark:text-gray-400 text-sm">
-            © 2026 Samuel Sun. Built with React, TypeScript & Tailwind CSS.
-          </p>
-        </div>
-      </footer>
-    </div>
+    <LanguageProvider>
+      <div className="min-h-screen">
+        <Navbar />
+        <main>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/projects" element={<Projects />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/contact" element={<Contact />} />
+          </Routes>
+        </main>
+        <Footer />
+      </div>
+    </LanguageProvider>
   )
 }
 

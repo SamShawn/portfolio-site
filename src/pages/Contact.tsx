@@ -1,18 +1,19 @@
 import { Mail, Github, Linkedin, Twitter, MapPin, Send } from 'lucide-react'
 import { SOCIAL_URL, SOCIAL_DISPLAY } from '../data/constants'
+import { useTranslation } from '../i18n/LanguageContext'
 
 export function Contact() {
+  const t = useTranslation()
   return (
     <div className="min-h-screen pt-16 pb-20">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         {/* Header */}
         <div className="text-center mb-12 animate-fade-in">
           <h1 className="text-4xl sm:text-5xl font-bold text-gray-900 dark:text-white mb-4">
-            联系我
+            {t.contact.title}
           </h1>
           <p className="text-lg text-gray-600 dark:text-gray-300">
-            有项目合作想法或想聊聊技术？随时联系我！
-
+            {t.contact.description}
           </p>
         </div>
 
@@ -21,7 +22,7 @@ export function Contact() {
           <div className="space-y-8 animate-slide-up">
             <div>
               <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">
-                社交媒体
+                {t.contact.socialMedia}
               </h2>
               <div className="space-y-4">
                 <a
@@ -87,7 +88,7 @@ export function Contact() {
             {/* Location */}
             <div className="flex items-center gap-3 text-gray-600 dark:text-gray-400">
               <MapPin className="w-5 h-5" />
-              <span>中国</span>
+              <span>{t.contact.location}</span>
             </div>
           </div>
 
@@ -95,7 +96,7 @@ export function Contact() {
           <div className="animate-slide-up" style={{ animationDelay: '0.2s' }}>
             <div className="p-8 rounded-2xl bg-gradient-to-br from-white to-gray-50 dark:from-gray-800 dark:to-gray-900 shadow-xl border border-gray-100 dark:border-gray-700">
               <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">
-                发送消息
+                {t.contact.sendMessage}
               </h2>
               <form className="space-y-6" onSubmit={(e) => e.preventDefault()}>
                 <div>
@@ -103,14 +104,14 @@ export function Contact() {
                     htmlFor="name"
                     className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2"
                   >
-                    姓名
+                    {t.contact.name}
                   </label>
                   <input
                     type="text"
                     id="name"
                     name="name"
                     className="w-full px-4 py-3 rounded-xl border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all duration-300"
-                    placeholder="你的姓名"
+                    placeholder={t.contact.namePlaceholder}
                   />
                 </div>
 
@@ -119,14 +120,14 @@ export function Contact() {
                     htmlFor="email"
                     className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2"
                   >
-                    邮箱
+                    {t.contact.email}
                   </label>
                   <input
                     type="email"
                     id="email"
                     name="email"
                     className="w-full px-4 py-3 rounded-xl border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all duration-300"
-                    placeholder="your.email@example.com"
+                    placeholder={t.contact.emailPlaceholder}
                   />
                 </div>
 
@@ -135,14 +136,14 @@ export function Contact() {
                     htmlFor="message"
                     className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2"
                   >
-                    消息
+                    {t.contact.message}
                   </label>
                   <textarea
                     id="message"
                     name="message"
                     rows={5}
-                    className="w-full px-4 py-3 rounded-xl border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all duration-300 resize-none"
-                    placeholder="你想说些什么..."
+                    className="w-full px-4 py-3 rounded-xl border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent transition:all duration-300 resize-none"
+                    placeholder={t.contact.messagePlaceholder}
                   />
                 </div>
 
@@ -151,12 +152,12 @@ export function Contact() {
                   className="w-full flex items-center justify-center gap-2 px-8 py-4 rounded-xl bg-gradient-to-r from-primary-500 to-purple-500 text-white font-semibold hover:from-primary-600 hover:to-purple-600 transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105"
                 >
                   <Send className="w-5 h-5" />
-                  发送消息
+                  {t.contact.sendButton}
                 </button>
               </form>
 
               <p className="mt-6 text-sm text-gray-600 dark:text-gray-400 text-center">
-                或者直接发送邮件到{' '}
+                {t.contact.orEmail}{' '}
                 <a
                   href={SOCIAL_URL.email}
                   className="text-primary-600 dark:text-primary-400 hover:underline"

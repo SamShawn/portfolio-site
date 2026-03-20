@@ -2,18 +2,22 @@ import { useState } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import { Menu, X } from 'lucide-react'
 import { ThemeToggle } from './ThemeToggle'
+import { LanguageToggle } from './LanguageToggle'
+import { useTranslation } from '../i18n/LanguageContext'
 import type { NavItem } from '../types'
-
-const navItems: NavItem[] = [
-  { label: '首页', path: '/' },
-  { label: '作品', path: '/projects' },
-  { label: '关于', path: '/about' },
-  { label: '联系', path: '/contact' }
-]
 
 export function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const location = useLocation()
+  const t = useTranslation()
+
+  // 根据当前语言生成导航项
+  const navItems: NavItem[] = [
+    { label: t.nav.home, path: '/' },
+    { label: t.nav.projects, path: '/projects' },
+    { label: t.nav.about, path: '/about' },
+    { label: t.nav.contact, path: '/contact' }
+  ]
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-white/70 dark:bg-gray-900/70 backdrop-blur-lg border-b border-gray-200/50 dark:border-gray-700/50">
@@ -54,8 +58,9 @@ export function Navbar() {
           </div>
 
           {/* Right Side Actions */}
-          <div className="flex items-center space-x-3">
+          <div className="flex items-center space-x-2 sm:space-x-3">
             <ThemeToggle />
+            <LanguageToggle />
 
             {/* Mobile Menu Button */}
             <button

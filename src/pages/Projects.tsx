@@ -1,9 +1,11 @@
 import { useState } from 'react'
 import { ProjectCard } from '../components/ProjectCard'
 import { projects } from '../data/projects'
+import { useTranslation } from '../i18n/LanguageContext'
 
 export function Projects() {
   const [filter, setFilter] = useState<'all' | 'featured'>('all')
+  const t = useTranslation()
 
   const filteredProjects = filter === 'all' ? projects : projects.filter(p => p.featured)
 
@@ -13,10 +15,10 @@ export function Projects() {
         {/* Header */}
         <div className="text-center mb-12 animate-fade-in">
           <h1 className="text-4xl sm:text-5xl font-bold text-gray-900 dark:text-white mb-4">
-            我的作品
+            {t.projects.title}
           </h1>
           <p className="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
-            每一个项目都是一次学习和成长的机会
+            {t.projects.description}
           </p>
         </div>
 
@@ -30,7 +32,7 @@ export function Projects() {
                 : 'bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700'
             }`}
           >
-            全部作品 ({projects.length})
+            {t.projects.all} ({projects.length})
           </button>
           <button
             onClick={() => setFilter('featured')}
@@ -40,7 +42,7 @@ export function Projects() {
                 : 'bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700'
             }`}
           >
-            精选作品 ({projects.filter(p => p.featured).length})
+            {t.projects.featured} ({projects.filter(p => p.featured).length})
           </button>
         </div>
 
@@ -61,7 +63,7 @@ export function Projects() {
         {filteredProjects.length === 0 && (
           <div className="text-center py-20">
             <p className="text-xl text-gray-600 dark:text-gray-300">
-              没有找到匹配的项目
+              {t.projects.noProjects}
             </p>
           </div>
         )}
