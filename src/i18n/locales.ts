@@ -89,7 +89,10 @@ export const zhCN = {
   common: {
     year: (year: number) => `© ${year} 孙昕. `,
     builtWith: '使用 React, TypeScript 和 Tailwind CSS 构建。'
-  }
+  },
+
+  // 页面标题
+  siteTitle: '孙昕的个人作品集'
 } as const
 
 // 英文翻译
@@ -180,7 +183,10 @@ export const enUS = {
   common: {
     year: (year: number) => `© ${year} Samuel Sun. `,
     builtWith: 'Built with React, TypeScript & Tailwind CSS.'
-  }
+  },
+
+  // 页面标题
+  siteTitle: 'Samuel Sun\'s Portfolio'
 } as const
 
 // 语言映射

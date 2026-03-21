@@ -1,5 +1,6 @@
 import { Routes, Route } from 'react-router-dom'
 import { LanguageProvider, useTranslation } from './i18n/LanguageContext'
+import { useDocumentTitle } from './hooks/useDocumentTitle'
 import { Navbar } from './components/Navbar'
 import { Home } from './pages/Home'
 import { Projects } from './pages/Projects'
@@ -25,19 +26,28 @@ function Footer() {
 function App() {
   return (
     <LanguageProvider>
-      <div className="min-h-screen">
-        <Navbar />
-        <main>
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/projects" element={<Projects />} />
-            <Route path="/about" element={<About />} />
-            <Route path="/contact" element={<Contact />} />
-          </Routes>
-        </main>
-        <Footer />
-      </div>
+      <AppContent />
     </LanguageProvider>
+  )
+}
+
+// 内部组件，以便在 LanguageProvider 中使用 hooks
+function AppContent() {
+  useDocumentTitle()
+
+  return (
+    <div className="min-h-screen">
+      <Navbar />
+      <main>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/projects" element={<Projects />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/contact" element={<Contact />} />
+        </Routes>
+      </main>
+      <Footer />
+    </div>
   )
 }
 
