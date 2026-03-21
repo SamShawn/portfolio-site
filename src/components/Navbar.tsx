@@ -32,7 +32,7 @@ export function Navbar() {
             <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-primary-500 to-purple-600 flex items-center justify-center shadow-lg group-hover:shadow-xl group-hover:scale-105 transition-all duration-300">
               <span className="text-white font-bold text-xl">S</span>
             </div>
-            <span className="text-xl font-bold bg-gradient-to-r from-primary-600 to-purple-600 bg-clip-text text-transparent">
+            <span className="hidden sm:block text-xl font-bold bg-gradient-to-r from-primary-600 to-purple-600 bg-clip-text text-transparent">
               Samuel Sun 孙昕
             </span>
           </Link>
