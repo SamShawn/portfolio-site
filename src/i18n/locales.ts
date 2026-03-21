@@ -87,8 +87,8 @@ export const zhCN = {
 
   // 通用
   common: {
-    year: (year: number) => `© ${year} 孙昕`,
-    builtWith: '使用 React, TypeScript 和 Tailwind CSS 进行构建。'
+    year: (year: number) => `© ${year} 孙昕. `,
+    builtWith: '使用 React, TypeScript 和 Tailwind CSS 构建。'
   }
 } as const
 
@@ -178,7 +178,7 @@ export const enUS = {
 
   // 通用
   common: {
-    year: (year: number) => `© ${year} Samuel Sun`,
+    year: (year: number) => `© ${year} Samuel Sun. `,
     builtWith: 'Built with React, TypeScript & Tailwind CSS.'
   }
 } as const
