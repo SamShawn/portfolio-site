@@ -1,0 +1,16 @@
+<svg width="128" height="128" viewBox="0 0 128 128" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="logoGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#3a6eff"/>
+      <stop offset="100%" stop-color="#9333ea"/>
+    </linearGradient>
+  </defs>
+
+  <!-- 40px × 40px / 8px rounded-lg, scaled up to 128px -->
+  <!-- Scale factor: 128 / 40 = 3.2 -->
+  <!-- rounded-lg (8px) × 3.2 = 25.6px -->
+  <rect x="0" y="0" width="128" height="128" rx="26" fill="url(#logoGradient)"/>
+
+  <!-- text-xl (20px) × 3.2 = 64px -->
+  <text x="64" y="88" font-family="Arial, sans-serif" font-size="64" font-weight="bold" fill="white" text-anchor="middle">S</text>
+</svg>
