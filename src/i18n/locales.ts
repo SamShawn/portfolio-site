@@ -46,7 +46,7 @@ export const zhCN = {
       '除了编程，我也是开源社区的积极贡献者。我相信通过分享知识和协作，\n我们可以共同推动技术进步，为更多人创造价值。'
     ],
     timelineTitle: '我的旅程',
-    timelineDescription: '工作、、学习和成就的时间轴',
+    timelineDescription: '工作、学习和成就的时间轴',
     interests: '兴趣爱好',
     interestsList: [
       {
@@ -55,7 +55,7 @@ export const zhCN = {
       },
       {
         title: '游戏开发',
-        description: '偶尔尝试开发。小型游戏，探索新的交互方式'
+        description: '偶尔尝试开发小型游戏，探索新的交互方式'
       },
       {
         title: '音乐',
