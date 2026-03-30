@@ -1,14 +1,15 @@
 import { ExternalLink, Github, ArrowUpRight } from 'lucide-react'
 import type { Project } from '../data/projects'
 import { motion } from 'framer-motion'
-import { useTranslation } from '../i18n/LanguageContext'
+import { useLanguage } from '../i18n/LanguageContext'
 
 interface ProjectCardProps {
   project: Project
 }
 
 export function ProjectCard({ project }: ProjectCardProps) {
-  const t = useTranslation()
+  const { language, t } = useLanguage()
+  const isEnglish = language === 'en-US'
 
   return (
     <motion.article
@@ -47,12 +48,12 @@ export function ProjectCard({ project }: ProjectCardProps) {
       <div className="p-6">
         {/* 标题 */}
         <h3 className="font-display text-2xl sm:text-3xl uppercase text-brutal-black dark:text-brutal-white group-hover:text-brutal-orange transition-colors">
-          {project.title}
+          {isEnglish && project.titleEn ? project.titleEn : project.title}
         </h3>
 
         {/* 描述 */}
         <p className="font-mono text-sm mt-3 text-brutal-black/70 dark:text-brutal-white/70 line-clamp-2">
-          {project.description}
+          {isEnglish && project.descriptionEn ? project.descriptionEn : project.description}
         </p>
 
         {/* 项目元信息 */}
@@ -60,12 +61,12 @@ export function ProjectCard({ project }: ProjectCardProps) {
           <div className="flex gap-4 mt-4 font-mono text-xs">
             {project.role && (
               <span className="px-2 py-1 border-2 border-brutal-black dark:border-brutal-white">
-                {project.role}
+                {isEnglish && project.roleEn ? project.roleEn : project.role}
               </span>
             )}
             {project.type && (
               <span className="px-2 py-1 bg-brutal-black dark:bg-brutal-white text-brutal-white dark:text-brutal-black">
-                {project.type}
+                {isEnglish && project.typeEn ? project.typeEn : project.type}
               </span>
             )}
           </div>
