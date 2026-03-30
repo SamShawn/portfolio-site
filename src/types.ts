@@ -7,6 +7,10 @@ export interface Project {
   githubUrl: string
   demoUrl: string | null
   featured: boolean
+  role?: string
+  type?: string
+  challenge?: string
+  solution?: string
 }
 
 export type TimelineType = 'work' | 'education' | 'achievement'

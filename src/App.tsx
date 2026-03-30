@@ -4,19 +4,20 @@ import { useDocumentTitle } from './hooks/useDocumentTitle'
 import { Navbar } from './components/Navbar'
 import { Home } from './pages/Home'
 import { Projects } from './pages/Projects'
+import { Stack } from './pages/Stack'
 import { About } from './pages/About'
 import { Contact } from './pages/Contact'
 import { motion, AnimatePresence } from 'framer-motion'
 
-// Footer 组件（内部组件以使用 Hook）
+// Footer 组件
 function Footer() {
   const t = useTranslation()
   const currentYear = new Date().getFullYear()
 
   return (
-    <footer className="border-t border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900">
+    <footer className="bg-brutal-black dark:bg-brutal-white border-t-4 border-brutal-black dark:border-brutal-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-        <p className="text-center text-gray-600 dark:text-gray-400 text-sm">
+        <p className="text-center font-mono text-sm text-brutal-white dark:text-brutal-black">
           {t.common.year(currentYear)} {t.common.builtWith}
         </p>
       </div>
@@ -32,27 +33,11 @@ function App() {
   )
 }
 
-// 页面过渡动画配置
+// 页面过渡动画配置 - 粗野主义风格
 const pageVariants = {
-  initial: { opacity: 0, y: 10, scale: 0.98 },
-  enter: {
-    opacity: 1,
-    y: 0,
-    scale: 1,
-    transition: {
-      duration: 0.4,
-      ease: [0.25, 0.1, 0.25, 1] as any
-    }
-  },
-  exit: {
-    opacity: 0,
-    y: -10,
-    scale: 0.98,
-    transition: {
-      duration: 0.3,
-      ease: [0.25, 0.1, 0.25, 1] as any
-    }
-  }
+  initial: { opacity: 0 },
+  enter: { opacity: 1, transition: { duration: 0.3 } },
+  exit: { opacity: 0, transition: { duration: 0.2 } }
 }
 
 // 内部组件，以便在 LanguageProvider 中使用 hooks
@@ -61,16 +46,16 @@ function AppContent() {
   const location = useLocation()
 
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen flex flex-col">
       <Navbar />
-      <main>
-        <AnimatePresence mode="popLayout">
+      <main className="flex-1">
+        <AnimatePresence mode="wait">
           <Routes location={location} key={location.pathname}>
             <Route
               path="/"
               element={
                 <motion.div
-                  variants={pageVariants}
+                  variants={pageVariants as any}
                   initial="initial"
                   animate="enter"
                   exit="exit"
@@ -83,7 +68,7 @@ function AppContent() {
               path="/projects"
               element={
                 <motion.div
-                  variants={pageVariants}
+                  variants={pageVariants as any}
                   initial="initial"
                   animate="enter"
                   exit="exit"
@@ -93,10 +78,23 @@ function AppContent() {
               }
             />
             <Route
+              path="/stack"
+              element={
+                <motion.div
+                  variants={pageVariants as any}
+                  initial="initial"
+                  animate="enter"
+                  exit="exit"
+                >
+                  <Stack />
+                </motion.div>
+              }
+            />
+            <Route
               path="/about"
               element={
                 <motion.div
-                  variants={pageVariants}
+                  variants={pageVariants as any}
                   initial="initial"
                   animate="enter"
                   exit="exit"
@@ -109,7 +107,7 @@ function AppContent() {
               path="/contact"
               element={
                 <motion.div
-                  variants={pageVariants}
+                  variants={pageVariants as any}
                   initial="initial"
                   animate="enter"
                   exit="exit"

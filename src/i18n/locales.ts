@@ -1,192 +1,200 @@
 // 支持的语言类型
 export type Language = 'zh-CN' | 'en-US'
 
-// 中文翻译
+// 中文翻译 - 粗野主义风格
 export const zhCN = {
   // 导航栏
   nav: {
     home: '首页',
-    projects: '作品',
+    projects: '项目',
     about: '关于',
-    contact: '联系'
+    contact: '联系',
+    stack: '技术栈'
   },
 
   // 首页
   home: {
-    welcome: '欢迎来到我的个人作品集',
-    greeting: '你好，我是孙昕',
-    title: '一名全栈开发者',
-    description: '热爱创造优雅的用户体验和高效的解决方案。\n专注于 React、Node.js 和现代 Web 技术栈。',
-    viewProjects: '查看作品',
+    greeting: '孙昕',
+    nickname: '(SamShawn)',
+    title: '全栈工程师',
+    subtitle: '解决问题的人',
+    location: '北京 / Remote',
+    viewProjects: '看项目',
     contactMe: '联系我',
-    featuredProjects: '精选作品',
-    featuredDescription: '以下是我的一些代表性项目，展示了我的技术能力和设计理念',
-    viewAllProjects: '查看所有作品',
+    scrollHint: '$ scroll --down',
+    featuredProjects: '精选项目',
+    featuredDescription: '这些项目展示了我是如何解决问题的',
+    viewAllProjects: '全部项目',
     techStack: '技术栈',
-    techStackDescription: '我专注于现代 Web 开发技术栈，并持续学习新技术'
+    techStackDescription: '我擅长并持续使用的技术'
+  },
+
+  // 技术栈页
+  stack: {
+    title: '技术栈',
+    subtitle: '我用什么来构建',
+    experience: '经验',
+    years: '年',
+    viewProjects: '查看相关项目'
   },
 
   // 作品页
   projects: {
-    title: '我的作品',
-    description: '每一个项目都是一次学习和成长的机会',
-    all: '全部作品',
-    featured: '精选作品',
-    noProjects: '没有找到匹配的项目'
+    title: '项目',
+    description: '每一个都是真实的、线上可访问的、解决过真实问题的',
+    all: '全部',
+    featured: '精选',
+    noProjects: '没有找到项目',
+    role: '角色',
+    type: '类型',
+    challenge: '核心挑战',
+    solution: '解决方案',
+    viewCode: '代码',
+    viewDemo: '演示'
   },
 
   // 关于页
   about: {
-    title: '关于我',
-    subtitle: '热爱编程，追求卓越',
-    greeting: '你好！',
+    title: '关于',
+    subtitle: '我是谁',
     intro: [
-      '我是孙昕，一名充满激情的全栈开发者，拥有超过 5 年的软件开发经验。\n我热衷于构建优雅、高效的用户界面和健壮的后端系统。',
-      '在职业生涯中，我曾参与过多个大型项目的开发，从初创公司的 MVP 到企业级应用。\n我擅长使用 React、TypeScript、Node.js 等现代技术栈，并且对性能优化、\n可访问性和用户体验有深入的理解。',
-      '除了编程，我也是开源社区的积极贡献者。我相信通过分享知识和协作，\n我们可以共同推动技术进步，为更多人创造价值。'
+      '我是孙昕，一个写了7年代码的全栈工程师。',
+      '我爱好解决问题。从前端交互到后端架构，从数据库设计到DevOps，我享受把想法变成可运行代码的过程。',
+      '我相信好的代码首先是为人读的，其次才是为机器。所以我重视可维护性、可测试性和代码可读性。'
     ],
-    timelineTitle: '我的旅程',
-    timelineDescription: '工作、学习和成就的时间轴',
-    interests: '兴趣爱好',
-    interestsList: [
-      {
-        title: '持续学习',
-        description: '关注最新的技术趋势，阅读技术博客和书籍'
-      },
-      {
-        title: '游戏开发',
-        description: '偶尔尝试开发小型游戏，探索新的交互方式'
-      },
-      {
-        title: '音乐',
-        description: '享受各种类型的音乐，在编码时听音乐帮助专注'
-      },
-      {
-        title: '摄影',
-        description: '用相机记录生活中的美好瞬间'
-      }
-    ]
+    beliefsTitle: '我的信念',
+    beliefs: [
+      '代码首先是为人读的，其次才是为机器',
+      '好的产品源于对用户需求的深刻理解',
+      '持续学习是技术人的核心竞争力'
+    ],
+    nowTitle: '现在',
+    now: '在找工作 - 全栈/后端工程师职位',
+    timelineTitle: '经历'
   },
 
   // 联系页
   contact: {
-    title: '联系我',
-    description: '有项目合作想法或想聊聊技术？随时联系我！',
-    socialMedia: '社交媒体',
-    location: '中国',
-    sendMessage: '发送消息',
-    name: '姓名',
+    title: '联系',
+    description: '有项目找我？或者只是聊聊技术？',
     email: '邮箱',
+    social: '社交',
+    orEmail: '或者直接写邮件',
+    location: '中国',
+    name: '姓名',
+    namePlaceholder: '你的名字',
+    emailPlaceholder: 'your@email.com',
     message: '消息',
-    namePlaceholder: '你的姓名',
-    emailPlaceholder: 'your.email@example.com',
-    messagePlaceholder: '你想说些什么...',
-    sendButton: '发送消息',
-    orEmail: '或者直接发送邮件到'
+    messagePlaceholder: '想说什么...',
+    sendButton: '发送消息'
   },
 
   // 通用
   common: {
-    year: (year: number) => `© ${year} 孙昕. `,
-    builtWith: '使用 React, TypeScript 和 Tailwind CSS 构建。'
+    year: (year: number) => `© ${year} 孙昕.`,
+    builtWith: '用 React + TypeScript + Tailwind 构建.'
   },
 
   // 页面标题
-  siteTitle: '孙昕的个人作品集'
+  siteTitle: '孙昕 | 全栈工程师'
 } as const
 
-// 英文翻译
+// 英文翻译 - 粗野主义风格
 export const enUS = {
   // 导航栏
   nav: {
     home: 'Home',
     projects: 'Projects',
     about: 'About',
-    contact: 'Contact'
+    contact: 'Contact',
+    stack: 'Stack'
   },
 
   // 首页
   home: {
-    welcome: 'Welcome to my portfolio',
-    greeting: 'Hi, I\'m Samuel Sun',
-    title: 'A Full-Stack Developer',
-    description: 'Passionate about creating elegant user experiences and efficient solutions.\nFocused on React, Node.js and modern web technologies.',
+    greeting: 'Samuel Sun',
+    nickname: '(SamShawn)',
+    title: 'Full-Stack Engineer',
+    subtitle: 'Problem Solver',
+    location: 'Beijing / Remote',
     viewProjects: 'View Projects',
-    contactMe: 'Contact Me',
-    viewAllProjects: 'View All Projects',
-    featuredProjects: 'Featured Projects',
-    featuredDescription: 'Here are some of my representative projects showcasing my technical skills and design philosophy',
+    contactMe: 'Contact',
+    scrollHint: '$ scroll --down',
+    featuredProjects: 'Featured',
+    featuredDescription: 'Real projects that solved real problems',
+    viewAllProjects: 'All Projects',
     techStack: 'Tech Stack',
-    techStackDescription: 'I specialize in modern web development technologies and continuously learn new ones'
+    techStackDescription: 'Technologies I work with'
+  },
+
+  // 技术栈页
+  stack: {
+    title: 'Tech Stack',
+    subtitle: 'What I build with',
+    experience: 'Experience',
+    years: 'yrs',
+    viewProjects: 'Related Projects'
   },
 
   // 作品页
   projects: {
-    title: 'My Projects',
-    description: 'Every project is an opportunity for learning and growth',
-    all: 'All Projects',
+    title: 'Projects',
+    description: 'Real projects. Live demos. Solved real problems.',
+    all: 'All',
     featured: 'Featured',
-    noProjects: 'No matching projects found'
+    noProjects: 'No projects found',
+    role: 'Role',
+    type: 'Type',
+    challenge: 'Challenge',
+    solution: 'Solution',
+    viewCode: 'Code',
+    viewDemo: 'Demo'
   },
 
   // 关于页
   about: {
-    title: 'About Me',
-    subtitle: 'Passionate about coding, pursuing excellence',
-    greeting: 'Hello!',
+    title: 'About',
+    subtitle: 'Who I am',
     intro: [
-      'I am Sun Xin, a passionate full-stack developer with over 5 years of software development experience.\nI am enthusiastic about building elegant, efficient user interfaces and robust backend systems.',
-      'Throughout my career, I have participated in the development of multiple large-scale projects, from startup MVPs to enterprise applications.\nI excel at using modern technology stacks like React, TypeScript, and Node.js, with deep understanding in performance optimization,\naccessibility, and user experience.',
-      'Beyond coding, I am also an active contributor to the open-source community. I believe that through sharing knowledge and collaboration,\nwe can collectively advance technology and create value for more people.'
+      "I'm Samuel Sun, a full-stack engineer with 7 years of coding experience.",
+      'I love solving problems. From frontend interactions to backend architecture, database design to DevOps — I enjoy turning ideas into working code.',
+      'I believe good code is written for humans first, machines second. So I value maintainability, testability, and readability.'
     ],
-    timelineTitle: 'My Journey',
-    timelineDescription: 'A timeline of work, learning, and achievements',
-    interests: 'Interests & Hobbies',
-    interestsList: [
-      {
-        title: 'Continuous Learning',
-        description: 'Keeping up with the latest technology trends, reading tech blogs and books'
-      },
-      {
-        title: 'Game Development',
-        description: 'Occasionally developing small games to explore new interaction patterns'
-      },
-      {
-        title: 'Music',
-        description: 'Enjoying various types of music, listening to music while coding helps me focus'
-      },
-      {
-        title: 'Photography',
-        description: 'Capturing beautiful moments in life with a camera'
-      }
-    ]
+    beliefsTitle: 'What I Believe',
+    beliefs: [
+      'Code is for humans first, machines second',
+      'Great products come from understanding user needs',
+      'Continuous learning is a developer\'s super power'
+    ],
+    nowTitle: 'Now',
+    now: 'Open to work — Full-stack / Backend Engineer',
+    timelineTitle: 'Journey'
   },
 
   // 联系页
   contact: {
-    title: 'Contact Me',
-    description: 'Have a project idea or want to talk tech? Feel free to reach out!',
-    socialMedia: 'Social Media',
-    location: 'China',
-    sendMessage: 'Send Message',
-    name: 'Name',
+    title: 'Contact',
+    description: 'Have a project? Want to talk tech?',
     email: 'Email',
-    message: 'Message',
+    social: 'Social',
+    orEmail: 'Or just email me',
+    location: 'China',
+    name: 'Name',
     namePlaceholder: 'Your name',
-    emailPlaceholder: 'your.email@example.com',
-    messagePlaceholder: 'What would you like to say...',
-    sendButton: 'Send Message',
-    orEmail: 'Or send an email directly to'
+    emailPlaceholder: 'your@email.com',
+    message: 'Message',
+    messagePlaceholder: 'What you want to say...',
+    sendButton: 'Send Message'
   },
 
   // 通用
   common: {
-    year: (year: number) => `© ${year} Samuel Sun. `,
-    builtWith: 'Built with React, TypeScript & Tailwind CSS.'
+    year: (year: number) => `© ${year} Samuel Sun.`,
+    builtWith: 'Built with React + TypeScript + Tailwind.'
   },
 
   // 页面标题
-  siteTitle: 'Samuel Sun\'s Portfolio'
+  siteTitle: 'Samuel Sun | Full-Stack Engineer'
 } as const
 
 // 语言映射
@@ -196,7 +204,7 @@ export const locales = {
 } as const
 
 // 默认语言
-export const DEFAULT_LANGUAGE: Language = 'zh-CN'
+export const DEFAULT_LANGUAGE: Language = 'en-US'
 
 // localStorage 键名
 export const LANGUAGE_STORAGE_KEY = 'portfolio-language'

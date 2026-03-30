@@ -1,43 +1,47 @@
-import { Timeline } from '../components/Timeline'
-import { timelineItems } from '../data/timeline'
 import { useTranslation } from '../i18n/LanguageContext'
 import { motion } from 'framer-motion'
 
 export function About() {
   const t = useTranslation()
+
   return (
-    <div className="min-h-screen pt-16 pb-20 vg-organic-bg">
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        {/* Header - 梵高风格 */}
+    <div className="min-h-screen pt-16 lg:pt-20 bg-brutal-white dark:bg-brutal-black">
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12 lg:py-20">
+
+        {/* Header */}
         <motion.div
-          className="text-center mb-16"
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
+          className="mb-16"
         >
-          <span className="text-van-gogh-cadmium-yellow font-handwritten text-2xl block mb-4">
-            故事
+          <span className="font-mono text-sm text-brutal-black/50 dark:text-brutal-white/50">
+            00 — {t.about.title}
           </span>
-          <h1 className="text-4xl sm:text-5xl font-bold text-van-gogh-canvas mb-4 font-serif-vg">
+          <h1 className="font-display text-6xl sm:text-8xl uppercase mt-2 text-brutal-black dark:text-brutal-white">
             {t.about.title}
           </h1>
-          <p className="text-lg text-van-gogh-canvas/80">
+          <p className="font-mono text-lg mt-4 text-brutal-black/70 dark:text-brutal-white/70">
             {t.about.subtitle}
           </p>
+
+          {/* 装饰线 */}
+          <div className="w-full h-4 bg-brutal-black dark:bg-brutal-white mt-8" />
         </motion.div>
 
-        {/* Introduction - 梵高风格卡片 */}
+        {/* Introduction */}
         <section className="mb-16">
           <motion.div
-            className="p-8 rounded-2xl impasto-border"
+            className="border-4 border-brutal-black dark:border-brutal-white bg-brutal-yellow dark:bg-brutal-black p-8"
+            style={{ boxShadow: '8px 8px 0px 0px #000000' }}
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.1 }}
           >
-            <h2 className="text-2xl font-bold text-van-gogh-text-dark mb-4 font-serif-vg">
-              {t.about.greeting}
+            <h2 className="font-display text-4xl uppercase text-brutal-black dark:text-brutal-white mb-6">
+              {t.about.subtitle}
             </h2>
-            <div className="space-y-4 text-van-gogh-text-dark/90 leading-relaxed font-body-vg">
+            <div className="space-y-4 font-mono text-base leading-relaxed text-brutal-black dark:text-brutal-white">
               {t.about.intro.map((paragraph, index) => (
                 <p key={index}>
                   {paragraph.split('\n').map((line, i) => (
@@ -52,57 +56,61 @@ export function About() {
           </motion.div>
         </section>
 
-        {/* Timeline - 梵高风格 */}
-        <section>
+        {/* Beliefs */}
+        <section className="mb-16">
           <motion.div
-            className="mb-8"
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
           >
-            <span className="text-van-gogh-cadmium-yellow font-handwritten text-2xl block mb-2">
-              旅程
+            <span className="font-mono text-sm text-brutal-black/50 dark:text-brutal-white/50">
+              01 — {t.about.beliefsTitle}
             </span>
-            <h2 className="text-3xl font-bold text-van-gogh-canvas mb-2 font-serif-vg">
-              {t.about.timelineTitle}
+            <h2 className="font-display text-4xl sm:text-5xl uppercase mt-2 mb-8 text-brutal-black dark:text-brutal-white">
+              {t.about.beliefsTitle}
             </h2>
-            <p className="text-van-gogh-canvas/80">
-              {t.about.timelineDescription}
-            </p>
+
+            <div className="space-y-4">
+              {t.about.beliefs.map((belief, index) => (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, x: -30 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 0.4, delay: 0.3 + index * 0.1 }}
+                  className="flex items-start gap-4"
+                >
+                  <span className="flex-shrink-0 w-12 h-12 flex items-center justify-center bg-brutal-black dark:bg-brutal-white text-brutal-white dark:text-brutal-black font-display text-xl">
+                    {String(index + 1).padStart(2, '0')}
+                  </span>
+                  <div className="flex-1 border-4 border-brutal-black dark:border-brutal-white p-4 bg-brutal-white dark:bg-brutal-black">
+                    <p className="font-mono text-lg text-brutal-black dark:text-brutal-white">
+                      {belief}
+                    </p>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
           </motion.div>
-          <Timeline items={timelineItems} />
         </section>
 
-        {/* Interests - 梵高风格 */}
-        <section className="mt-16">
+        {/* Now */}
+        <section className="mb-16">
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.3 }}
+            transition={{ duration: 0.6, delay: 0.4 }}
           >
-            <h2 className="text-3xl font-bold text-van-gogh-canvas mb-8 font-serif-vg">
-              {t.about.interests}
+            <span className="font-mono text-sm text-brutal-black/50 dark:text-brutal-white/50">
+              02 — {t.about.nowTitle}
+            </span>
+            <h2 className="font-display text-4xl sm:text-5xl uppercase mt-2 mb-6 text-brutal-black dark:text-brutal-white">
+              {t.about.nowTitle}
             </h2>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-              {t.about.interestsList.map((interest, index) => {
-                const colors = ['from-van-gogh-cobalt/20', 'from-van-gogh-ochre/20', 'from-van-gogh-olive/20', 'from-van-gogh-sienna/20']
-                return (
-                  <motion.div
-                    key={index}
-                    className={`p-6 rounded-xl bg-gradient-to-br ${colors[index]} border border-van-gogh-ochre/20 hover:shadow-xl hover:scale-105 transition-all duration-300`}
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.4, delay: 0.1 * index }}
-                  >
-                    <h3 className="text-lg font-bold text-van-gogh-canvas mb-2 font-serif-vg">
-                      {interest.title}
-                    </h3>
-                    <p className="text-van-gogh-canvas/80 text-sm font-body-vg">
-                      {interest.description}
-                    </p>
-                  </motion.div>
-                )
-              })}
+
+            <div className="border-4 border-brutal-orange bg-brutal-orange p-6">
+              <p className="font-display text-2xl sm:text-3xl uppercase text-brutal-white">
+                {t.about.now}
+              </p>
             </div>
           </motion.div>
         </section>

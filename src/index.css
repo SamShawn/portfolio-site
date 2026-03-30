@@ -1,146 +1,45 @@
+/* ===== 字体引入 ===== */
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=IBM+Plex+Mono:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600;700&family=Fira+Code:wght@400;500&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 /* ============================================
-   程序员个人作品网站 - 完整主题配色方案
+   粗野主义 Brutalist 风格 - 程序员作品集
    ============================================
-   亮色模式：简洁专业，低饱和科技蓝为主
-   黑暗模式：非纯黑背景，高对比低眩光
-   符合 WCAG 2.1 AA 级对比度要求
+   核心理念：Raw, Bold, Honest
+   - 纯色块，无渐变
+   - 超大字体，强烈对比
+   - 粗黑边框，明确划分
+   - 无圆角或极小圆角
    ============================================ */
 
-/* ===== 梵高色盘 CSS 变量 ===== */
+/* ===== CSS 变量 ===== */
 @layer base {
   :root {
-    /* 梵高色盘 - 用于梵高主题 */
-    --vg-cobalt: #0047AB;
-    --vg-midnight: #1a1a2e;
-    --vg-cadmium-yellow: #E3A01B;
-    --vg-ochre: #CC7722;
-    --vg-sienna: #A0522D;
-    --vg-olive: #4a5d23;
-    --vg-canvas: #f5f0e1;
-    --vg-text-dark: #1a1a1a;
-
-    /* 梵高主题开关 */
-    --van-gogh-theme: 0;
+    /* 粗野主义核心色 */
+    --brutal-black: #000000;
+    --brutal-white: #FFFFFF;
+    --brutal-orange: #FF3300;
+    --brutal-lime: #00FF00;
+    --brutal-yellow: #FFFF00;
+    --brutal-cyan: #00FFFF;
+    --brutal-magenta: #FF00FF;
   }
 
+  /* 亮色模式 */
   :root {
-    /* ===== 亮色模式 CSS 变量 ===== */
-    /* 主色调 - 低饱和科技蓝 */
-    --color-primary-50: #f0f5ff;
-    --color-primary-100: #e1e9ff;
-    --color-primary-200: #c4d4ff;
-    --color-primary-300: #96b4ff;
-    --color-primary-400: #5e8eff;
-    --color-primary-500: #3a6eff;
-    --color-primary-600: #2b54e6;
-    --color-primary-700: #1e3cb8;
-    --color-primary-800: #162c91;
-    --color-primary-900: #0f2375;
-
-    /* 功能色 */
-    --color-success: #059669;
-    --color-warning: #d97706;
-    --color-danger: #dc2626;
-
-    /* 表面颜色 */
-    --color-surface: #ffffff;
-    --color-surface-elevated: #f8fafc;
-    --color-surface-overlay: #f1f5f9;
-    --color-surface-code: #f8fafc;
-
-    /* 文本颜色 (WCAG 2.1 AA) */
-    --color-text-primary: #0f172a;        /* 对白底 16.8:1 */
-    --color-text-secondary: #475569;      /* 对白底 6.9:1 */
-    --color-text-tertiary: #94a3b8;       /* 对白底 2.8:1 */
-    --color-text-inverse: #ffffff;
-
-    /* 边框颜色 */
-    --color-border: #e2e8f0;
-    --color-border-subtle: #f1f5f9;
-
-    /* 链接颜色 */
-    --color-link: #3a6eff;
-    --color-link-hover: #2b54e6;
-
-    /* 代码语法高亮 - One Light 主题 */
-    --code-background: #f8fafc;
-    --code-foreground: #0f172a;
-    --code-keyword: #d73a49;
-    --code-string: #032f62;
-    --code-comment: #6a1b9a;
-    --code-function: #6f42c1;
-    --code-number: #005cc5;
-    --code-operator: #586069;
-    --code-variable: #24292e;
-    --code-class: #6f42c1;
-    --code-property: #005cc5;
-
-    /* 其他 */
-    --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
-    --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
-    --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+    --color-surface: #FFFFFF;
+    --color-text: #000000;
+    --color-border: #000000;
   }
 
+  /* 黑暗模式 */
   .dark {
-    /* ===== 黑暗模式 CSS 变量 ===== */
-    /* 主色调 - 稍亮的科技蓝以适应深色背景 */
-    --color-primary-50: #0d1117;
-    --color-primary-100: #161b22;
-    --color-primary-200: #21262d;
-    --color-primary-300: #30363d;
-    --color-primary-400: #58a6ff;
-    --color-primary-500: #58a6ff;
-    --color-primary-600: #79c0ff;
-    --color-primary-700: #a5d6ff;
-    --color-primary-800: #c9d1d9;
-    --color-primary-900: #e2e8f0;
-
-    /* 功能色 */
-    --color-success: #3fb950;
-    --color-warning: #d29922;
-    --color-danger: #f85149;
-
-    /* 表面颜色 - GitHub Dark 风格，非纯黑 */
-    --color-surface: #0d1117;
-    --color-surface-elevated: #161b22;
-    --color-surface-overlay: #21262d;
-    --color-surface-code: #161b22;
-
-    /* 文本颜色 (WCAG 2.1 AA) */
-    --color-text-primary: #e2e8f0;        /* 对 #0d1117: 15.7:1 */
-    --color-text-secondary: #94a3b8;      /* 对 #0d1117: 6.9:1 */
-    --color-text-tertiary: #64748b;       /* 对 #0d1117: 3.2:1 */
-    --color-text-inverse: #0f172a;
-
-    /* 边框颜色 */
-    --color-border: #30363d;
-    --color-border-subtle: #21262d;
-
-    /* 链接颜色 */
-    --color-link: #58a6ff;
-    --color-link-hover: #79c0ff;
-
-    /* 代码语法高亮 - One Dark Pro 主题 */
-    --code-background: #161b22;
-    --code-foreground: #c9d1d9;
-    --code-keyword: #ff7b72;
-    --code-string: #a5d6ff;
-    --code-comment: #8b949e;
-    --code-function: #d2a8ff;
-    --code-number: #79c0ff;
-    --code-operator: #ff7b72;
-    --code-variable: #ffa657;
-    --code-class: #f0883e;
-    --code-property: #79c0ff;
-
-    /* 其他 */
-    --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.3);
-    --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.4), 0 2px 4px -2px rgb(0 0 0 / 0.3);
-    --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.5), 0 4px 6px -4px rgb(0 0 0 / 0.4);
+    --color-surface: #000000;
+    --color-text: #FFFFFF;
+    --color-border: #FFFFFF;
   }
 
   /* ===== 全局基础样式 ===== */
@@ -154,412 +53,287 @@
   }
 
   body {
-    /* 亮色模式背景 */
     background-color: var(--color-surface);
-    color: var(--color-text-primary);
-    font-family: system-ui, -apple-system, sans-serif;
+    color: var(--color-text);
+    font-family: 'IBM Plex Sans', system-ui, sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
 
-  /* 黑暗模式背景 */
-  .dark body {
-    background-color: var(--color-surface);
-  }
-
-  /* ===== 平滑主题切换过渡 ===== */
+  /* ===== 平滑主题切换 ===== */
   * {
-    @apply transition-colors duration-300 ease-in-out;
-  }
-
-  /* 防止滚动条和其他属性触发过渡 */
-  *::-webkit-scrollbar,
-  ::selection,
-  ::-moz-selection {
-    transition: none !important;
-  }
-
-  /* ===== 文本选中样式 ===== */
-  ::selection {
-    background-color: var(--color-primary-200);
-    color: var(--color-text-primary);
-  }
-
-  .dark ::selection {
-    background-color: var(--color-primary-900);
-    color: var(--color-text-inverse);
-  }
-
-  /* ===== 焦点样式 ===== */
-  :focus-visible {
-    outline: 2px solid var(--color-primary-500);
-    outline-offset: 2px;
+    @apply transition-colors duration-150;
   }
 }
 
 @layer components {
+  /* ===== 粗野主义按钮 ===== */
+  .btn-brutal {
+    @apply inline-flex items-center justify-center px-6 py-3 font-mono font-bold uppercase tracking-wider;
+    @apply border-4 border-black bg-white text-black;
+    @apply hover:bg-black hover:text-white;
+    @apply active:translate-x-1 active:translate-y-1;
+    box-shadow: 6px 6px 0px 0px #000000;
+    transition: all 0.1s ease;
+  }
+
+  .btn-brutal:hover {
+    box-shadow: 2px 2px 0px 0px #000000;
+  }
+
+  .dark .btn-brutal {
+    @apply border-white bg-black text-white;
+    @apply hover:bg-white hover:text-black;
+    box-shadow: 6px 6px 0px 0px #FFFFFF;
+  }
+
+  .dark .btn-brutal:hover {
+    box-shadow: 2px 2px 0px 0px #FFFFFF;
+  }
+
+  /* 橙色变体 */
+  .btn-brutal-orange {
+    @apply btn-brutal bg-brutal-orange text-white border-black;
+    @apply hover:bg-black;
+    box-shadow: 6px 6px 0px 0px #000000;
+  }
+
+  .dark .btn-brutal-orange {
+    @apply bg-brutal-orange border-white;
+    box-shadow: 6px 6px 0px 0px #FFFFFF;
+  }
+
+  /* ===== 粗野主义卡片 ===== */
+  .card-brutal {
+    @apply bg-white border-4 border-black p-6;
+    box-shadow: 8px 8px 0px 0px #000000;
+  }
+
+  .dark .card-brutal {
+    @apply bg-black border-4 border-white;
+    box-shadow: 8px 8px 0px 0px #FFFFFF;
+  }
+
+  /* ===== 粗野主义输入框 ===== */
+  .input-brutal {
+    @apply w-full px-4 py-3 font-mono text-base;
+    @apply bg-white border-4 border-black text-black;
+    @apply focus:outline-none focus:ring-0;
+    @apply placeholder:text-gray-400;
+  }
+
+  .dark .input-brutal {
+    @apply bg-black border-4 border-white text-white;
+    @apply placeholder:text-gray-600;
+  }
+
+  /* ===== 粗野主义标题 ===== */
+  .title-brutal {
+    @apply font-display uppercase tracking-wider;
+    @apply text-black;
+  }
+
+  .dark .title-brutal {
+    @apply text-white;
+  }
+
   /* ===== 代码块样式 ===== */
   .code-block {
-    background-color: var(--code-background);
-    color: var(--code-foreground);
-    border-radius: 0.5rem;
-    padding: 1rem;
-    font-family: 'SF Mono', Monaco, 'Cascadia Code', 'Roboto Mono', Consolas, 'Courier New', monospace;
-    font-size: 0.875rem;
-    line-height: 1.5;
-    overflow-x: auto;
-    border: 1px solid var(--color-border);
+    @apply bg-white border-4 border-black p-4 font-mono text-sm;
+    @apply overflow-x-auto;
+    box-shadow: 6px 6px 0px 0px #000000;
   }
 
-  .code-block.dark {
-    background-color: var(--code-background);
-    border-color: var(--color-border);
+  .dark .code-block {
+    @apply bg-black border-4 border-white text-white;
+    box-shadow: 6px 6px 0px 0px #FFFFFF;
   }
 
-  /* ===== 内联代码样式 ===== */
-  .inline-code {
-    background-color: var(--color-surface-elevated);
-    color: var(--code-keyword);
-    padding: 0.125rem 0.375rem;
-    border-radius: 0.25rem;
-    font-family: 'SF Mono', Monaco, 'Cascadia Code', 'Roboto Mono', Consolas, monospace;
-    font-size: 0.875em;
-    border: 1px solid var(--color-border-subtle);
+  /* ===== 导航链接 ===== */
+  .nav-brutal {
+    @apply relative font-mono font-bold uppercase tracking-wider;
+    @apply text-black hover:text-brutal-orange;
+    @apply transition-colors duration-150;
   }
 
-  /* ===== 卡片组件 ===== */
-  .card {
-    background-color: var(--color-surface-elevated);
-    border: 1px solid var(--color-border);
-    border-radius: 0.75rem;
-    padding: 1.5rem;
-    box-shadow: var(--shadow-sm);
-    transition: all 0.3s ease-in-out;
+  .dark .nav-brutal {
+    @apply text-white hover:text-brutal-lime;
   }
 
-  .card:hover {
-    box-shadow: var(--shadow-md);
-    border-color: var(--color-primary-400);
+  /* ===== 装饰线 ===== */
+  .divider-brutal {
+    @apply h-4 bg-black;
   }
 
-  /* ===== 按钮变体 ===== */
-  .btn-primary {
-    background-color: var(--color-primary-500);
-    color: #ffffff;
-    border-radius: 0.5rem;
-    padding: 0.625rem 1.25rem;
-    font-weight: 500;
-    transition: all 0.2s ease-in-out;
+  .dark .divider-brutal {
+    @apply bg-white;
   }
 
-  .btn-primary:hover {
-    background-color: var(--color-primary-600);
-    transform: translateY(-1px);
-    box-shadow: 0 4px 12px rgb(58 110 255 / 0.4);
+  /* ===== 标签/徽章 ===== */
+  .badge-brutal {
+    @apply inline-block px-3 py-1 font-mono text-sm font-bold uppercase;
+    @apply border-2 border-black bg-white text-black;
   }
 
-  .dark .btn-primary:hover {
-    box-shadow: 0 4px 12px rgb(88 166 255 / 0.4);
+  .dark .badge-brutal {
+    @apply border-white bg-black text-white;
   }
 
-  .btn-secondary {
-    background-color: var(--color-surface-elevated);
-    color: var(--color-text-primary);
-    border: 1px solid var(--color-border);
-    border-radius: 0.5rem;
-    padding: 0.625rem 1.25rem;
-    font-weight: 500;
-    transition: all 0.2s ease-in-out;
+  /* 彩色变体 */
+  .badge-brutal-orange {
+    @apply badge-brutal bg-brutal-orange text-white border-black;
   }
 
-  .btn-secondary:hover {
-    background-color: var(--color-surface-overlay);
-    border-color: var(--color-primary-400);
+  .badge-brutal-lime {
+    @apply badge-brutal bg-brutal-lime text-black border-black;
   }
 
-  /* ===== 链接样式 ===== */
-  .link {
-    color: var(--color-link);
-    text-decoration: underline;
-    text-underline-offset: 2px;
-    transition: all 0.2s ease-in-out;
+  .badge-brutal-yellow {
+    @apply badge-brutal bg-brutal-yellow text-black border-black;
   }
 
-  .link:hover {
-    color: var(--color-link-hover);
-    text-decoration-thickness: 2px;
+  /* ===== 粗野主义分隔符 ===== */
+  .separator-brutal {
+    @apply w-full h-2 bg-black;
   }
 
-  /* ===== 输入框样式 ===== */
-  .input {
-    background-color: var(--color-surface);
-    color: var(--color-text-primary);
-    border: 1px solid var(--color-border);
-    border-radius: 0.5rem;
-    padding: 0.625rem 0.875rem;
-    font-size: 0.875rem;
-    transition: all 0.2s ease-in-out;
+  .dark .separator-brutal {
+    @apply bg-white;
   }
 
-  .input:focus {
-    outline: none;
-    border-color: var(--color-primary-500);
-    box-shadow: 0 0 0 3px var(--color-primary-100);
+  /* ===== 悬停效果 ===== */
+  .hover-shake:hover {
+    animation: shake 0.3s ease-in-out;
   }
 
-  .dark .input:focus {
-    box-shadow: 0 0 0 3px rgb(88 166 255 / 0.2);
+  @keyframes shake {
+    0%, 100% { transform: translateX(0) rotate(0); }
+    25% { transform: translateX(-4px) rotate(-1deg); }
+    75% { transform: translateX(4px) rotate(1deg); }
   }
 
-  /* ===== 梵高风格组件 ===== */
-  /* Impasto 厚涂法边框效果 */
-  .impasto-border {
-    background: var(--vg-canvas);
-    border: 3px solid var(--vg-text-dark);
-    box-shadow:
-      4px 4px 0 var(--vg-ochre),
-      6px 6px 0 var(--vg-sienna),
-      8px 8px 0 var(--vg-cobalt),
-      10px 10px 15px rgba(0, 0, 0, 0.3);
+  /* ===== 光标闪烁效果 ===== */
+  .cursor-blink::after {
+    content: '█';
+    @apply animate-blink ml-1;
   }
 
-  /* 梵高风格按钮 */
-  .vg-button {
-    background: var(--vg-cobalt);
-    color: var(--vg-canvas);
-    font-family: 'Playfair Display', Georgia, serif;
-    font-weight: 600;
-    padding: 1rem 2.5rem;
-    border: none;
-    transform: rotate(-1deg);
-    transition: all 0.3s ease;
-    box-shadow:
-      3px 3px 0 var(--vg-ochre),
-      5px 5px 0 var(--vg-sienna);
+  /* ===== 滚动条自定义 ===== */
+  ::-webkit-scrollbar {
+    width: 12px;
+    height: 12px;
   }
 
-  .vg-button:hover {
-    transform: rotate(0deg) scale(1.05);
-    box-shadow:
-      5px 5px 0 var(--vg-ochre),
-      8px 8px 0 var(--vg-sienna),
-      10px 10px 20px rgba(0, 71, 171, 0.4);
+  ::-webkit-scrollbar-track {
+    background: var(--color-surface);
+    border-left: 2px solid var(--color-border);
   }
 
-  /* 梵高导航链接 */
-  .vg-nav-link {
-    position: relative;
-    font-family: 'Playfair Display', Georgia, serif;
-    font-weight: 600;
-    color: var(--vg-canvas);
-    text-decoration: none;
-    padding: 0.5rem 0;
+  ::-webkit-scrollbar-thumb {
+    background: var(--color-border);
+    border: 2px solid var(--color-surface);
   }
 
-  .vg-nav-link::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 0;
-    height: 3px;
-    background: var(--vg-cadmium-yellow);
-    transition: width 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-    transform: rotate(-1deg);
+  ::-webkit-scrollbar-thumb:hover {
+    background: var(--brutal-orange);
   }
 
-  .vg-nav-link:hover::after {
-    width: 100%;
-  }
-
-  /* 梵高卡片悬停效果 */
-  .vg-card {
-    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-  }
-
-  .vg-card:hover {
-    transform: scale(1.03) rotate(0deg);
-    filter: saturate(1.2);
-  }
-
-  /* 梵高手绘边框效果 */
-  .hand-drawn {
-    position: relative;
-  }
-
-  .hand-drawn::before {
-    content: '';
-    position: absolute;
-    top: -8px;
-    left: -8px;
-    right: -8px;
-    bottom: -8px;
-    border: 2px solid var(--vg-ochre);
-    border-radius: 2% 4% 3% 5% / 4% 2% 5% 3%;
-    opacity: 0.5;
-    pointer-events: none;
-  }
-
-  /* 梵高标题样式 */
-  .vg-hero-title {
-    font-family: 'Playfair Display', Georgia, serif;
-    font-weight: 900;
-    color: var(--vg-cadmium-yellow);
-    text-shadow:
-      3px 3px 0 var(--vg-ochre),
-      6px 6px 0 var(--vg-sienna),
-      8px 8px var(--vg-midnight);
-    transform: rotate(-2deg);
-  }
-
-  /* 梵高有机背景 */
-  .vg-organic-bg {
-    background:
-      radial-gradient(ellipse at 20% 20%, rgba(0, 71, 171, 0.3) 0%, transparent 50%),
-      radial-gradient(ellipse at 80% 80%, rgba(204, 119, 34, 0.2) 0%, transparent 50%),
-      radial-gradient(ellipse at 50% 50%, rgba(227, 160, 27, 0.1) 0%, transparent 70%),
-      linear-gradient(180deg, var(--vg-midnight) 0%, #0d0d1a 100%);
-  }
-
-  /* 梵高画布纹理 */
-  .vg-canvas-texture {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    pointer-events: none;
-    z-index: 1000;
-    opacity: 0.04;
-    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
-  }
-
-  /* 梵高手写字体 */
-  .font-handwritten {
-    font-family: 'Caveat', cursive;
-  }
-
-  /* 梵高衬线字体 */
-  .font-serif-vg {
-    font-family: 'Playfair Display', Georgia, serif;
-  }
-
-  /* 梵高正文字体 */
-  .font-body-vg {
-    font-family: 'Source Serif Pro', Georgia, serif;
+  /* Firefox */
+  * {
+    scrollbar-width: thick;
+    scrollbar-color: var(--color-border) var(--color-surface);
   }
 }
 
 @layer utilities {
-  .text-balance {
-    text-wrap: balance;
+  /* ===== 粗野主义工具类 ===== */
+  .border-brutal {
+    @apply border-4 border-black;
   }
 
-  /* ===== 颜色工具类 ===== */
-  .bg-surface {
-    background-color: var(--color-surface);
+  .dark .border-brutal {
+    @apply border-white;
   }
 
-  .bg-surface-elevated {
-    background-color: var(--color-surface-elevated);
+  .border-brutal-sm {
+    @apply border-2 border-black;
   }
 
-  .bg-surface-code {
-    background-color: var(--color-surface-code);
+  .dark .border-brutal-sm {
+    @apply border-white;
   }
 
-  .text-primary-custom {
-    color: var(--color-text-primary);
+  .shadow-brutal {
+    box-shadow: 8px 8px 0px 0px #000000;
   }
 
-  .text-secondary-custom {
-    color: var(--color-text-secondary);
+  .dark .shadow-brutal {
+    box-shadow: 8px 8px 0px 0px #FFFFFF;
   }
 
-  .text-tertiary-custom {
-    color: var(--color-text-tertiary);
+  .shadow-brutal-sm {
+    box-shadow: 4px 4px 0px 0px #000000;
   }
 
-  /* ===== 语法高亮工具类 ===== */
-  .syntax-keyword {
-    color: var(--code-keyword);
+  .dark .shadow-brutal-sm {
+    box-shadow: 4px 4px 0px 0px #FFFFFF;
   }
 
-  .syntax-string {
-    color: var(--code-string);
+  .shadow-brutal-orange {
+    box-shadow: 8px 8px 0px 0px #FF3300;
   }
 
-  .syntax-comment {
-    color: var(--code-comment);
-    font-style: italic;
+  .text-brutal-orange {
+    color: #FF3300;
   }
 
-  .syntax-function {
-    color: var(--code-function);
+  .text-brutal-lime {
+    color: #00FF00;
   }
 
-  .syntax-number {
-    color: var(--code-number);
+  .bg-brutal-black {
+    background-color: #000000;
   }
 
-  .syntax-variable {
-    color: var(--code-variable);
+  .bg-brutal-white {
+    background-color: #FFFFFF;
   }
 
-  .syntax-class {
-    color: var(--code-class);
-  }
-}
-
-/* ============================================
-   自定义滚动条
-   ============================================ */
-::-webkit-scrollbar {
-  width: 10px;
-  height: 10px;
-}
-
-::-webkit-scrollbar-track {
-  background: transparent;
-}
-
-::-webkit-scrollbar-thumb {
-  background: var(--color-border);
-  border-radius: 6px;
-  border: 2px solid transparent;
-  background-clip: content-box;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: var(--color-text-tertiary);
-  background-clip: content-box;
-}
-
-/* Firefox 滚动条 */
-* {
-  scrollbar-width: thin;
-  scrollbar-color: var(--color-border) transparent;
-}
-
-/* ============================================
-   打印样式
-   ============================================ */
-@media print {
-  *,
-  *::before,
-  *::after {
-    transition: none !important;
-    box-shadow: none !important;
+  .bg-brutal-orange {
+    background-color: #FF3300;
   }
 
-  body {
-    background-color: white !important;
-    color: black !important;
+  .bg-brutal-lime {
+    background-color: #00FF00;
   }
 
-  .code-block {
-    background-color: #f5f5f5 !important;
-    color: black !important;
-    border: 1px solid #ddd !important;
+  .bg-brutal-yellow {
+    background-color: #FFFF00;
+  }
+
+  .bg-brutal-cyan {
+    background-color: #00FFFF;
+  }
+
+  .bg-brutal-magenta {
+    background-color: #FF00FF;
+  }
+
+  /* ===== 打印样式 ===== */
+  @media print {
+    *, *::before, *::after {
+      transition: none !important;
+      box-shadow: none !important;
+    }
+
+    body {
+      background-color: white !important;
+      color: black !important;
+    }
+
+    .btn-brutal, .card-brutal, .code-block {
+      border: 2px solid black !important;
+      box-shadow: none !important;
+    }
   }
 }
