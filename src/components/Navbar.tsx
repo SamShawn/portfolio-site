@@ -103,7 +103,7 @@ export function Navbar() {
                   <Link
                     to={item.path}
                     onClick={() => setIsMenuOpen(false)}
-                    className={`block px-6 py-4 font-display text-3xl uppercase tracking-wider border-4 ${
+                    className={`block px-6 py-4 font-display text-lg uppercase tracking-wider border-4 ${
                       location.pathname === item.path
                         ? 'bg-brutal-black dark:bg-brutal-white text-brutal-white dark:text-brutal-black border-brutal-black dark:border-brutal-white'
                         : 'text-brutal-black dark:text-brutal-white border-brutal-black dark:border-brutal-white hover:bg-brutal-black dark:hover:bg-brutal-white hover:text-brutal-white dark:hover:text-brutal-black'

@@ -15,17 +15,17 @@ export function Home() {
 
         {/* 装饰性背景元素 */}
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
-          {/* 大号装饰文字 */}
-          <div className="absolute top-1/4 -left-20 text-[20vw] font-display text-brutal-black dark:text-brutal-white opacity-03 dark:opacity-[0.03] select-none">
+          {/* 大号装饰文字 - 仅在大屏幕显示 */}
+          <div className="hidden lg:block absolute top-[15%] left-[10%] text-[10vw] font-display text-brutal-black dark:text-brutal-white opacity-[0.1] select-none leading-none">
             {'</>'}
           </div>
-          <div className="absolute bottom-1/4 -right-20 text-[15vw] font-display text-brutal-orange opacity-05 select-none">
+          <div className="hidden lg:block absolute bottom-[15%] right-[10%] text-[8vw] font-display text-brutal-orange opacity-[0.1] select-none leading-none">
             CODE
           </div>
 
           {/* 装饰线 */}
-          <div className="absolute top-1/3 left-0 w-full h-2 bg-brutal-black dark:bg-brutal-white" />
-          <div className="absolute bottom-1/3 left-0 w-full h-2 bg-brutal-black dark:bg-brutal-white" />
+          {/* <div className="absolute top-1/3 left-0 w-full h-2 bg-brutal-black dark:bg-brutal-white" /> */}
+          {/* <div className="absolute bottom-1/3 left-0 w-full h-2 bg-brutal-black dark:bg-brutal-white" /> */}
         </div>
 
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 lg:py-32">
@@ -86,7 +86,7 @@ export function Home() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.5 }}
-            className="flex flex-wrap gap-4 mt-12"
+            className="flex flex-wrap gap-4 mt-12 mb-16 sm:mb-8"
           >
             <Link
               to="/projects"
@@ -108,7 +108,7 @@ export function Home() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.6, delay: 0.8 }}
-            className="absolute bottom-8 left-1/2 -translate-x-1/2"
+            className="flex justify-center"
           >
             <div className="flex flex-col items-center gap-2 font-mono text-sm">
               <span className="text-brutal-black/50 dark:text-brutal-white/50">{t.home.scrollHint}</span>
