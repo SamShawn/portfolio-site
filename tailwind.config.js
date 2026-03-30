@@ -6,6 +6,28 @@ export default {
   darkMode: 'class',
   theme: {
     extend: {
+      // ===== 梵高色盘 (Van Gogh Palette) =====
+      vanGogh: {
+        // 深钴蓝 - 星夜天空
+        cobalt: '#0047AB',
+        // 午夜蓝 - 阴影
+        midnight: '#1a1a2e',
+        // 铬黄 - 太阳、星星、温暖
+        'cadmium-yellow': '#E3A01B',
+        // 金赭色 - 麦田、大地
+        ochre: '#CC7722',
+        // 焦褐色 - 秋日温暖
+        sienna: '#A0522D',
+        // 橄榄绿 - 柏树
+        olive: '#4a5d23',
+        // 画布白
+        canvas: '#f5f0e1',
+        // 文字深色
+        'text-dark': '#1a1a1a',
+        // 文字浅色 (同 canvas)
+        'text-light': '#f5f0e1',
+      },
+
       colors: {
         // ===== 亮色模式 (Light Mode) =====
         // 主色调：低饱和科技蓝，适合专业形象

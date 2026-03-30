@@ -10,7 +10,23 @@
    符合 WCAG 2.1 AA 级对比度要求
    ============================================ */
 
+/* ===== 梵高色盘 CSS 变量 ===== */
 @layer base {
+  :root {
+    /* 梵高色盘 - 用于梵高主题 */
+    --vg-cobalt: #0047AB;
+    --vg-midnight: #1a1a2e;
+    --vg-cadmium-yellow: #E3A01B;
+    --vg-ochre: #CC7722;
+    --vg-sienna: #A0522D;
+    --vg-olive: #4a5d23;
+    --vg-canvas: #f5f0e1;
+    --vg-text-dark: #1a1a1a;
+
+    /* 梵高主题开关 */
+    --van-gogh-theme: 0;
+  }
+
   :root {
     /* ===== 亮色模式 CSS 变量 ===== */
     /* 主色调 - 低饱和科技蓝 */
@@ -293,6 +309,144 @@
 
   .dark .input:focus {
     box-shadow: 0 0 0 3px rgb(88 166 255 / 0.2);
+  }
+
+  /* ===== 梵高风格组件 ===== */
+  /* Impasto 厚涂法边框效果 */
+  .impasto-border {
+    background: var(--vg-canvas);
+    border: 3px solid var(--vg-text-dark);
+    box-shadow:
+      4px 4px 0 var(--vg-ochre),
+      6px 6px 0 var(--vg-sienna),
+      8px 8px 0 var(--vg-cobalt),
+      10px 10px 15px rgba(0, 0, 0, 0.3);
+  }
+
+  /* 梵高风格按钮 */
+  .vg-button {
+    background: var(--vg-cobalt);
+    color: var(--vg-canvas);
+    font-family: 'Playfair Display', Georgia, serif;
+    font-weight: 600;
+    padding: 1rem 2.5rem;
+    border: none;
+    transform: rotate(-1deg);
+    transition: all 0.3s ease;
+    box-shadow:
+      3px 3px 0 var(--vg-ochre),
+      5px 5px 0 var(--vg-sienna);
+  }
+
+  .vg-button:hover {
+    transform: rotate(0deg) scale(1.05);
+    box-shadow:
+      5px 5px 0 var(--vg-ochre),
+      8px 8px 0 var(--vg-sienna),
+      10px 10px 20px rgba(0, 71, 171, 0.4);
+  }
+
+  /* 梵高导航链接 */
+  .vg-nav-link {
+    position: relative;
+    font-family: 'Playfair Display', Georgia, serif;
+    font-weight: 600;
+    color: var(--vg-canvas);
+    text-decoration: none;
+    padding: 0.5rem 0;
+  }
+
+  .vg-nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 3px;
+    background: var(--vg-cadmium-yellow);
+    transition: width 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    transform: rotate(-1deg);
+  }
+
+  .vg-nav-link:hover::after {
+    width: 100%;
+  }
+
+  /* 梵高卡片悬停效果 */
+  .vg-card {
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .vg-card:hover {
+    transform: scale(1.03) rotate(0deg);
+    filter: saturate(1.2);
+  }
+
+  /* 梵高手绘边框效果 */
+  .hand-drawn {
+    position: relative;
+  }
+
+  .hand-drawn::before {
+    content: '';
+    position: absolute;
+    top: -8px;
+    left: -8px;
+    right: -8px;
+    bottom: -8px;
+    border: 2px solid var(--vg-ochre);
+    border-radius: 2% 4% 3% 5% / 4% 2% 5% 3%;
+    opacity: 0.5;
+    pointer-events: none;
+  }
+
+  /* 梵高标题样式 */
+  .vg-hero-title {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-weight: 900;
+    color: var(--vg-cadmium-yellow);
+    text-shadow:
+      3px 3px 0 var(--vg-ochre),
+      6px 6px 0 var(--vg-sienna),
+      8px 8px var(--vg-midnight);
+    transform: rotate(-2deg);
+  }
+
+  /* 梵高有机背景 */
+  .vg-organic-bg {
+    background:
+      radial-gradient(ellipse at 20% 20%, rgba(0, 71, 171, 0.3) 0%, transparent 50%),
+      radial-gradient(ellipse at 80% 80%, rgba(204, 119, 34, 0.2) 0%, transparent 50%),
+      radial-gradient(ellipse at 50% 50%, rgba(227, 160, 27, 0.1) 0%, transparent 70%),
+      linear-gradient(180deg, var(--vg-midnight) 0%, #0d0d1a 100%);
+  }
+
+  /* 梵高画布纹理 */
+  .vg-canvas-texture {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1000;
+    opacity: 0.04;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+  }
+
+  /* 梵高手写字体 */
+  .font-handwritten {
+    font-family: 'Caveat', cursive;
+  }
+
+  /* 梵高衬线字体 */
+  .font-serif-vg {
+    font-family: 'Playfair Display', Georgia, serif;
+  }
+
+  /* 梵高正文字体 */
+  .font-body-vg {
+    font-family: 'Source Serif Pro', Georgia, serif;
   }
 }
 

@@ -20,38 +20,38 @@ export function Navbar() {
   ]
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-white/70 dark:bg-gray-900/70 backdrop-blur-lg border-b border-gray-200/50 dark:border-gray-700/50">
+    <nav className="fixed top-0 left-0 right-0 z-50 bg-van-gogh-midnight/80 backdrop-blur-lg border-b border-van-gogh-ochre/20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
-          {/* Logo */}
+          {/* Logo - 梵高风格 */}
           <Link
             to="/"
             className="flex items-center space-x-2 group"
             onClick={() => setIsMenuOpen(false)}
           >
-            <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-primary-500 to-purple-600 flex items-center justify-center shadow-lg group-hover:shadow-xl group-hover:scale-105 transition-all duration-300">
-              <span className="text-white font-bold text-xl">S</span>
+            <div className="w-10 h-10 rounded-lg bg-van-gogh-cobalt flex items-center justify-center shadow-lg group-hover:shadow-xl group-hover:scale-105 transition-all duration-300 border-2 border-van-gogh-cadmium-yellow">
+              <span className="text-van-gogh-canvas font-bold text-xl font-serif-vg">S</span>
             </div>
-            <span className="hidden sm:block text-xl font-bold bg-gradient-to-r from-primary-600 to-purple-600 bg-clip-text text-transparent">
-              Samuel Sun 孙昕
+            <span className="hidden sm:block text-xl font-bold text-van-gogh-cadmium-yellow font-serif-vg">
+              孙昕
             </span>
           </Link>
 
-          {/* Desktop Navigation */}
+          {/* Desktop Navigation - 梵高风格 */}
           <div className="hidden md:flex items-center space-x-1">
             {navItems.map((item) => (
               <Link
                 key={item.path}
                 to={item.path}
-                className={`px-4 py-2 rounded-lg font-medium transition-all duration-300 relative group ${
+                className={`px-4 py-2 rounded-lg font-medium transition-all duration-300 relative group font-serif-vg ${
                   location.pathname === item.path
-                    ? 'text-primary-600 dark:text-primary-400 bg-primary-50 dark:bg-primary-900/30'
-                    : 'text-gray-600 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 hover:bg-gray-100 dark:hover:bg-gray-800'
+                    ? 'text-van-gogh-cadmium-yellow bg-van-gogh-cobalt/30'
+                    : 'text-van-gogh-canvas/80 hover:text-van-gogh-cadmium-yellow hover:bg-van-gogh-midnight/50'
                 }`}
               >
                 {item.label}
                 {location.pathname !== item.path && (
-                  <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-0.5 bg-gradient-to-r from-primary-500 to-purple-500 group-hover:w-full transition-all duration-300 rounded-full" />
+                  <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-0.5 bg-van-gogh-cadmium-yellow group-hover:w-full transition-all duration-300 rounded-full" style={{ transform: 'rotate(-1deg)' }} />
                 )}
               </Link>
             ))}
@@ -65,13 +65,13 @@ export function Navbar() {
             {/* Mobile Menu Button */}
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="md:hidden p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
+              className="md:hidden p-2 rounded-lg hover:bg-van-gogh-midnight/50 transition-colors"
               aria-label="Toggle menu"
             >
               {isMenuOpen ? (
-                <X className="w-6 h-6 text-gray-600 dark:text-gray-300" />
+                <X className="w-6 h-6 text-van-gogh-canvas" />
               ) : (
-                <Menu className="w-6 h-6 text-gray-600 dark:text-gray-300" />
+                <Menu className="w-6 h-6 text-van-gogh-canvas" />
               )}
             </button>
           </div>
@@ -79,17 +79,17 @@ export function Navbar() {
 
         {/* Mobile Menu */}
         {isMenuOpen && (
-          <div className="md:hidden py-4 border-t border-gray-200 dark:border-gray-700 animate-fade-in">
+          <div className="md:hidden py-4 border-t border-van-gogh-ochre/20 animate-fade-in">
             <div className="flex flex-col space-y-2">
               {navItems.map((item) => (
                 <Link
                   key={item.path}
                   to={item.path}
                   onClick={() => setIsMenuOpen(false)}
-                  className={`px-4 py-3 rounded-lg font-medium transition-all duration-300 ${
+                  className={`px-4 py-3 rounded-lg font-medium transition-all duration-300 font-serif-vg ${
                     location.pathname === item.path
-                      ? 'text-primary-600 dark:text-primary-400 bg-primary-50 dark:bg-primary-900/30'
-                      : 'text-gray-600 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 hover:bg-gray-100 dark:hover:bg-gray-800'
+                      ? 'text-van-gogh-cadmium-yellow bg-van-gogh-cobalt/30'
+                      : 'text-van-gogh-canvas/80 hover:text-van-gogh-cadmium-yellow hover:bg-van-gogh-midnight/50'
                   }`}
                 >
                   {item.label}

@@ -1,0 +1,26 @@
+# --- 依赖与构建产物 ---
+node_modules/
+dist/
+build/
+.next/
+out/
+
+# --- 锁文件与日志 ---
+*.lock
+package-lock.json
+yarn.lock
+*.log
+logs/
+
+# --- 版本控制与缓存 ---
+.git/
+.cache/
+.temp/
+
+# --- 静态资源（AI通常用不上）---
+*.png
+*.jpg
+*.svg
+*.ico
+*.woff
+*.woff2

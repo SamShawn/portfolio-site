@@ -1,120 +1,235 @@
 import { Link } from 'react-router-dom'
-import { ArrowRight, Github, Twitter, Linkedin, Mail, Sparkles } from 'lucide-react'
+import { ArrowRight, Github, Twitter, Linkedin, Mail } from 'lucide-react'
 import { ProjectCard } from '../components/ProjectCard'
 import { featuredProjects } from '../data/projects'
 import { SOCIAL_URL } from '../data/constants'
 import { useTranslation } from '../i18n/LanguageContext'
+import { motion } from 'framer-motion'
+
+// 梵高风格背景星星组件
+function StarField() {
+  return (
+    <div className="fixed inset-0 vg-organic-bg -z-10" />
+  )
+}
+
+// 梵高风格装饰星星
+function PaintStar({ className, delay = 0 }: { className?: string; delay?: number }) {
+  return (
+    <motion.div
+      className={`absolute w-5 h-5 bg-van-gogh-cadmium-yellow ${className}`}
+      style={{
+        clipPath: 'polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%)'
+      }}
+      animate={{
+        opacity: [0.4, 1, 0.4],
+        scale: [0.8, 1.2, 0.8]
+      }}
+      transition={{
+        duration: 3,
+        repeat: Infinity,
+        delay: delay,
+        ease: "easeInOut"
+      }}
+    />
+  )
+}
+
+// 漩涡装饰
+function Swirl({ className, reverse = false }: { className?: string; reverse?: boolean }) {
+  return (
+    <motion.div
+      className={`absolute opacity-20 ${className}`}
+      animate={{ rotate: reverse ? -360 : 360 }}
+      transition={{
+        duration: 20,
+        repeat: Infinity,
+        ease: "linear"
+      }}
+    >
+      <svg viewBox="0 0 100 100" className="w-32 h-32" fill="none" stroke="#0047AB" strokeWidth="1">
+        <path d="M50 50 Q60 30 50 10 Q40 30 50 50 Q70 40 90 50 Q70 60 50 50 Q60 70 50 90 Q40 70 50 50" />
+      </svg>
+    </motion.div>
+  )
+}
 
 export function Home() {
   const t = useTranslation()
+
   return (
     <div className="min-h-screen pt-16">
-      {/* Hero Section */}
-      <section className="relative overflow-hidden">
-        {/* Animated Background */}
-        <div className="absolute inset-0 bg-gradient-to-br from-primary-600 via-purple-600 to-pink-600 opacity-10 dark:opacity-20" />
-        <div className="absolute inset-0 bg-gradient-to-r from-primary-600 via-purple-600 to-pink-600 animate-gradient-x blur-3xl opacity-20 dark:opacity-30" />
+      {/* 梵高风格背景 */}
+      <StarField />
+
+      {/* Hero Section - 梵高风格 */}
+      <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden">
+        {/* 装饰性漩涡 */}
+        <Swirl className="top-20 left-10" reverse />
+        <Swirl className="bottom-32 right-16" />
+
+        {/* 装饰星星 */}
+        <PaintStar className="top-32 right-1/4" delay={0} />
+        <PaintStar className="top-48 left-1/3" delay={0.5} />
+        <PaintStar className="bottom-40 right-1/3" delay={1} />
+        <PaintStar className="bottom-60 left-1/4" delay={1.5} />
+
+        {/* 画布纹理叠加 */}
+        <div className="vg-canvas-texture" />
 
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 lg:py-32">
-          <div className="text-center animate-fade-in">
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary-50 dark:bg-primary-900/30 border border-primary-200 dark:border-primary-800 mb-6">
-              <Sparkles className="w-4 h-4 text-primary-600 dark:text-primary-400" />
-              <span className="text-sm font-semibold text-primary-700 dark:text-primary-300">
-                {t.home.welcome}
-              </span>
-            </div>
+          <motion.div
+            className="text-center"
+            initial={{ opacity: 0, y: 40 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, ease: [0.4, 0, 0.2, 1] }}
+          >
+            {/* 头像区域 - 梵高风格头像框 */}
+            <motion.div
+              className="w-32 h-32 mx-auto mb-8 rounded-full impasto-border flex items-center justify-center"
+              animate={{ y: [0, -10, 0] }}
+              transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
+              style={{ transform: 'rotate(-2deg)' }}
+            >
+              <svg viewBox="0 0 100 100" className="w-20 h-20">
+                <circle cx="50" cy="35" r="20" fill="#CC7722" />
+                <path d="M30 70 Q50 50 70 70" stroke="#CC7722" strokeWidth="3" fill="none" />
+                <circle cx="40" cy="32" r="3" fill="#1a1a2e" />
+                <circle cx="60" cy="32" r="3" fill="#1a1a2e" />
+                <path d="M45 45 Q50 50 55 45" stroke="#1a1a2e" strokeWidth="2" fill="none" />
+              </svg>
+            </motion.div>
 
-            <h1 className="text-4xl sm:text-5xl lg:text-7xl font-bold text-gray-900 dark:text-white mb-6">
-              {t.home.greeting}
-              <span className="block mt-2 bg-gradient-to-r from-primary-600 via-purple-600 to-pink-600 bg-clip-text text-transparent">
-                {t.home.title}
-              </span>
+            {/* 标题 - 梵高风格 */}
+            <h1 className="vg-hero-title text-5xl sm:text-6xl lg:text-7xl mb-6">
+              孙昕
             </h1>
 
-            <p className="text-lg sm:text-xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto mb-8">
-              {t.home.description.split('\n').map((line, i) => (
-                <span key={i}>
-                  {line}
-                  {i < t.home.description.split('\n').length - 1 && <br />}
-                </span>
-              ))}
+            <p className="text-xl sm:text-2xl text-van-gogh-canvas/90 mb-4 font-body-vg">
+              数字炼金术士 & 创意技术专家
             </p>
 
+            <p className="text-lg font-handwritten text-van-gogh-cadmium-yellow mb-10" style={{ fontSize: '1.8rem' }}>
+              "我梦想我的代码，然后我编写我的梦想。"
+            </p>
+
+            {/* 按钮 - 梵高风格 */}
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
               <Link
                 to="/projects"
-                className="flex items-center gap-2 px-8 py-4 rounded-xl bg-gradient-to-r from-primary-500 to-purple-500 text-white font-semibold hover:from-primary-600 hover:to-purple-600 transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105"
+                className="vg-button inline-flex items-center gap-2"
               >
                 {t.home.viewProjects}
                 <ArrowRight className="w-5 h-5" />
               </Link>
               <Link
                 to="/contact"
-                className="flex items-center gap-2 px-8 py-4 rounded-xl border-2 border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 font-semibold hover:border-primary-500 dark:hover:border-primary-500 hover:text-primary-600 dark:hover:text-primary-400 transition-all duration-300"
+                className="inline-flex items-center gap-2 px-8 py-4 rounded-xl border-2 border-van-gogh-ochre/50 text-van-gogh-canvas font-semibold hover:border-van-gogh-cadmium-yellow hover:text-van-gogh-cadmium-yellow transition-all duration-300"
               >
                 <Mail className="w-5 h-5" />
                 {t.home.contactMe}
               </Link>
             </div>
 
-            {/* Social Links */}
-            <div className="flex items-center justify-center gap-4 mt-8">
-              <a
+            {/* 社交链接 */}
+            <div className="flex items-center justify-center gap-4 mt-10">
+              <motion.a
                 href={SOCIAL_URL.github}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="p-3 rounded-full bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-400 hover:bg-gray-200 dark:hover:bg-gray-700 hover:text-gray-900 dark:hover:text-white transition-all duration-300 hover:scale-110"
+                className="p-3 rounded-full bg-van-gogh-midnight/50 text-van-gogh-canvas/80 hover:text-van-gogh-cadmium-yellow hover:bg-van-gogh-midnight transition-all duration-300"
+                whileHover={{ scale: 1.1 }}
                 aria-label="GitHub"
               >
                 <Github className="w-5 h-5" />
-              </a>
-              <a
+              </motion.a>
+              <motion.a
                 href={SOCIAL_URL.twitter}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="p-3 rounded-full bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-400 hover:bg-gray-200 dark:hover:bg-gray-700 hover:text-blue-400 dark:hover:text-blue-400 transition-all duration-300 hover:scale-110"
+                className="p-3 rounded-full bg-van-gogh-midnight/50 text-van-gogh-canvas/80 hover:text-van-gogh-cadmium-yellow hover:bg-van-gogh-midnight transition-all duration-300"
+                whileHover={{ scale: 1.1 }}
                 aria-label="Twitter"
               >
                 <Twitter className="w-5 h-5" />
-              </a>
-              <a
+              </motion.a>
+              <motion.a
                 href={SOCIAL_URL.linkedin}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="p-3 rounded-full bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-400 hover:bg-gray-200 dark:hover:bg-gray-700 hover:text-blue-600 dark:hover:text-blue-400 transition-all duration-300 hover:scale-110"
+                className="p-3 rounded-full bg-van-gogh-midnight/50 text-van-gogh-canvas/80 hover:text-van-gogh-cadmium-yellow hover:bg-van-gogh-midnight transition-all duration-300"
+                whileHover={{ scale: 1.1 }}
                 aria-label="LinkedIn"
               >
                 <Linkedin className="w-5 h-5" />
-              </a>
+              </motion.a>
             </div>
-          </div>
+          </motion.div>
         </div>
+
+        {/* 滚动指示器 */}
+        <motion.div
+          className="absolute bottom-10 left-1/2 -translate-x-1/2"
+          animate={{ y: [0, 10, 0] }}
+          transition={{ duration: 2, repeat: Infinity }}
+        >
+          <svg width="30" height="50" viewBox="0 0 30 50" fill="none">
+            <rect x="5" y="5" width="20" height="40" rx="10" stroke="#CC7722" strokeWidth="2"/>
+            <motion.circle
+              cx="15"
+              cy="15"
+              r="4"
+              fill="#E3A01B"
+              animate={{ cy: [15, 25, 15] }}
+              transition={{ duration: 2, repeat: Infinity }}
+            />
+          </svg>
+        </motion.div>
       </section>
 
-      {/* Featured Projects Section */}
-      <section className="py-20 lg:py-32">
+      {/* Featured Projects Section - 梵高风格 */}
+      <section className="py-20 lg:py-32 relative">
+        {/* 渐变背景过渡 */}
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-van-gogh-midnight/50 to-transparent -z-10" />
+
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12 animate-slide-up">
-            <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 dark:text:text-white mb-4">
+          <motion.div
+            className="text-center mb-12"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+          >
+            <span className="text-van-gogh-cadmium-yellow font-handwritten text-2xl block mb-4">
+              精选作品
+            </span>
+            <h2 className="text-3xl sm:text-4xl font-bold text-van-gogh-canvas mb-4 font-serif-vg">
               {t.home.featuredProjects}
             </h2>
-            <p className="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
+            <p className="text-lg text-van-gogh-canvas/80 max-w-2xl mx-auto font-body-vg">
               {t.home.featuredDescription}
             </p>
-          </div>
+          </motion.div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {featuredProjects.map((project, index) => (
-              <div key={project.id} style={{ animationDelay: `${index * 0.1}s` }}>
+              <motion.div
+                key={project.id}
+                initial={{ opacity: 0, y: 40 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: index * 0.1 }}
+                style={{ transform: index % 2 === 0 ? 'rotate(-2deg)' : 'rotate(2deg)' }}
+              >
                 <ProjectCard project={project} />
-              </div>
+              </motion.div>
             ))}
           </div>
 
           <div className="text-center mt-12">
             <Link
               to="/projects"
-              className="inline-flex items-center gap-2 px-6 py-3 rounded-xl border-2 border-primary-500 text-primary-600 dark:text-primary-400 font-semibold hover:bg-primary-50 dark:hover:bg-primary-900/30 transition-all duration-300"
+              className="inline-flex items-center gap-2 px-6 py-3 rounded-xl border-2 border-van-gogh-cadmium-yellow text-van-gogh-cadmium-yellow font-semibold hover:bg-van-gogh-cadmium-yellow/10 transition-all duration-300 font-serif-vg"
             >
               {t.home.viewAllProjects}
               <ArrowRight className="w-5 h-5" />
@@ -123,17 +238,26 @@ export function Home() {
         </div>
       </section>
 
-      {/* Skills Section */}
-      <section className="py-20 lg:py-32 bg-gradient-to-b from-transparent via-primary-50/50 dark:via-primary-900/10 to-transparent">
+      {/* Skills Section - 梵高风格 */}
+      <section className="py-20 lg:py-32">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12 animate-slide-up">
-            <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white mb-4">
+          <motion.div
+            className="text-center mb-12"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+          >
+            <span className="text-van-gogh-cadmium-yellow font-handwritten text-2xl block mb-4">
+              技术栈
+            </span>
+            <h2 className="text-3xl sm:text-4xl font-bold text-van-gogh-canvas mb-4 font-serif-vg">
               {t.home.techStack}
             </h2>
-            <p className="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
+            <p className="text-lg text-van-gogh-canvas/80 max-w-2xl mx-auto font-body-vg">
               {t.home.techStackDescription}
             </p>
-          </div>
+          </motion.div>
 
           <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4">
             {[
@@ -150,13 +274,16 @@ export function Home() {
               { name: 'Figma', color: 'from-purple-500 to-pink-500' },
               { name: 'Vite', color: 'from-yellow-400 to-orange-400' }
             ].map((skill, index) => (
-              <div
+              <motion.div
                 key={skill.name}
-                className={`group p-4 rounded-xl bg-gradient-to-br ${skill.color} text-white shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300 cursor-default animate-slide-up`}
-                style={{ animationDelay: `${index * 0.05}s` }}
+                className={`group p-4 rounded-xl bg-gradient-to-br ${skill.color} text-white shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300 cursor-default`}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.4, delay: index * 0.05 }}
               >
                 <span className="text-lg font-bold">{skill.name}</span>
-              </div>
+              </motion.div>
             ))}
           </div>
         </div>
