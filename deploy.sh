@@ -35,7 +35,7 @@ gh-pages -d dist
 
 if [ $? -eq 0 ]; then
   echo "✅ Deployment successful!"
-  echo "🌐 Your site should be live at: https://${GITHUB_USERNAME}.github.io/portfolio-site/"
+  echo "🌐 Your site should be live at: https://${GITHUB_USERNAME}.github.io/portfolio/"
 else
   echo "❌ Deployment failed."
   exit 1
