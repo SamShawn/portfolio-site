@@ -20,7 +20,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
     >
       {/* 悬停时的额外阴影效果 */}
       <motion.div
-        className="absolute inset-0 border-4 border-brutal-orange"
+        className="absolute inset-0 border-4 border-brutal-orange pointer-events-none"
         initial={{ opacity: 0 }}
         whileHover={{ opacity: 1 }}
         transition={{ duration: 0.1 }}
@@ -90,12 +90,12 @@ export function ProjectCard({ project }: ProjectCardProps) {
         </div>
 
         {/* Links */}
-        <div className="flex items-center gap-3 mt-6">
+        <div className="flex items-center gap-3 mt-6 relative z-10">
           <a
             href={project.githubUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center gap-2 px-4 py-2 font-mono text-sm font-bold uppercase border-2 border-brutal-black dark:border-brutal-white hover:bg-brutal-black dark:hover:bg-brutal-white hover:text-brutal-white dark:hover:text-brutal-black transition-colors"
+            className="flex items-center gap-2 px-4 py-2 font-mono text-sm font-bold uppercase border-2 border-brutal-black dark:border-brutal-white hover:bg-brutal-black dark:hover:bg-brutal-white hover:text-brutal-white dark:hover:text-brutal-black transition-colors cursor-pointer relative z-10"
           >
             <Github className="w-4 h-4" />
             {t.projects.viewCode}
@@ -105,7 +105,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
               href={project.demoUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-2 px-4 py-2 font-mono text-sm font-bold uppercase bg-brutal-orange text-white border-2 border-brutal-black hover:bg-brutal-black transition-colors"
+              className="flex items-center gap-2 px-4 py-2 font-mono text-sm font-bold uppercase bg-brutal-orange text-white border-2 border-brutal-black hover:bg-brutal-black transition-colors cursor-pointer relative z-10"
             >
               <ExternalLink className="w-4 h-4" />
               {t.projects.viewDemo}
