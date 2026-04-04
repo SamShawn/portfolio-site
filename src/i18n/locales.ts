@@ -86,7 +86,10 @@ export const zhCN = {
     emailPlaceholder: 'your@email.com',
     message: '消息',
     messagePlaceholder: '想说什么...',
-    sendButton: '发送消息'
+    sendButton: '发送消息',
+    sending: '发送中...',
+    sendSuccess: '消息已发送！',
+    sendError: '发送失败，请重试'
   },
 
   // 通用
@@ -184,7 +187,10 @@ export const enUS = {
     emailPlaceholder: 'your@email.com',
     message: 'Message',
     messagePlaceholder: 'What you want to say...',
-    sendButton: 'Send Message'
+    sendButton: 'Send Message',
+    sending: 'Sending...',
+    sendSuccess: 'Message sent!',
+    sendError: 'Failed to send, please try again'
   },
 
   // 通用

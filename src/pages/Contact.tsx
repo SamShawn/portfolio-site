@@ -1,10 +1,37 @@
-import { Mail, Github, Linkedin, Twitter, MapPin, Send, ArrowRight } from 'lucide-react'
+import { useRef, useState } from 'react'
+import { Mail, Github, Linkedin, Twitter, MapPin, Send, ArrowRight, CheckCircle, XCircle } from 'lucide-react'
 import { SOCIAL_URL, SOCIAL_DISPLAY } from '../data/constants'
 import { useTranslation } from '../i18n/LanguageContext'
 import { motion } from 'framer-motion'
+import emailjs from '@emailjs/browser'
 
 export function Contact() {
   const t = useTranslation()
+  const formRef = useRef<HTMLFormElement>(null)
+  const [status, setStatus] = useState<'idle' | 'sending' | 'success' | 'error'>('idle')
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault()
+    if (!formRef.current) return
+
+    setStatus('sending')
+
+    try {
+      await emailjs.sendForm(
+        import.meta.env.VITE_EMAILJS_SERVICE_ID,
+        import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
+        formRef.current,
+        import.meta.env.VITE_EMAILJS_PUBLIC_KEY
+      )
+      setStatus('success')
+      formRef.current.reset()
+      setTimeout(() => setStatus('idle'), 3000)
+    } catch (error) {
+      console.error('EmailJS error:', error)
+      setStatus('error')
+      setTimeout(() => setStatus('idle'), 3000)
+    }
+  }
 
   const socialLinks = [
     { name: 'GitHub', url: SOCIAL_URL.github, display: SOCIAL_DISPLAY.github, icon: Github },
@@ -126,7 +153,7 @@ export function Contact() {
                 {t.contact.title}
               </h2>
 
-              <form className="space-y-6" onSubmit={(e) => e.preventDefault()}>
+              <form ref={formRef} className="space-y-6" onSubmit={handleSubmit}>
                 <div>
                   <label
                     htmlFor="name"
@@ -177,10 +204,33 @@ export function Contact() {
 
                 <button
                   type="submit"
-                  className="btn-brutal-orange w-full flex items-center justify-center gap-2"
+                  disabled={status === 'sending' || status === 'success'}
+                  className="btn-brutal-orange w-full flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed"
                 >
-                  <Send className="w-5 h-5" />
-                  {t.contact.sendButton}
+                  {status === 'sending' && (
+                    <>
+                      <span className="w-5 h-5 border-2 border-brutal-white border-t-transparent rounded-full animate-spin" />
+                      {t.contact.sending}
+                    </>
+                  )}
+                  {status === 'success' && (
+                    <>
+                      <CheckCircle className="w-5 h-5" />
+                      {t.contact.sendSuccess}
+                    </>
+                  )}
+                  {status === 'error' && (
+                    <>
+                      <XCircle className="w-5 h-5" />
+                      {t.contact.sendError}
+                    </>
+                  )}
+                  {status === 'idle' && (
+                    <>
+                      <Send className="w-5 h-5" />
+                      {t.contact.sendButton}
+                    </>
+                  )}
                 </button>
               </form>
 

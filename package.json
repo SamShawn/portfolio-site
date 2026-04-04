@@ -11,6 +11,7 @@
     "deploy": "bash deploy.sh"
   },
   "dependencies": {
+    "@emailjs/browser": "^4.4.1",
     "framer-motion": "^12.38.0",
     "lucide-react": "^0.460.0",
     "react": "^18.3.1",
