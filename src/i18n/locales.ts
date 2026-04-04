@@ -69,7 +69,7 @@ export const zhCN = {
       '持续学习是技术人的核心竞争力'
     ],
     nowTitle: '现在',
-    now: '在找工作 - 全栈/后端工程师职位',
+    now: '在找工作 - 全栈/前端工程师职位',
     timelineTitle: '经历'
   },
 
