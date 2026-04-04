@@ -167,7 +167,7 @@ export const enUS = {
       'Continuous learning is a developer\'s super power'
     ],
     nowTitle: 'Now',
-    now: 'Open to work — Full-stack / Backend Engineer',
+    now: 'Open to work — Full-stack / Frontend Engineer',
     timelineTitle: 'Journey'
   },
 
