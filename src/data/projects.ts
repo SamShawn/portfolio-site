@@ -27,9 +27,9 @@ export const projects: Project[] = [
     title: 'TeamLink',
     titleEn: 'TeamLink',
     description:
-      '企业级跨端实时聊天协作应用，对标Slack，支持频道聊天、私聊、实时消息、文件上传与权限管理，UI/UX达国际顶级设计水准。',
+      '实时聊天协作应用，对标Slack，支持频道聊天、私聊、实时消息、文件上传与权限管理，UI/UX达国际顶级设计水准。',
     descriptionEn:
-      'Enterprise-level cross-end real-time chat collaboration app, benchmarking Slack, supporting channel chat, private chat, real-time messaging, file upload and permission management, with top international UI/UX standards.',
+      'A real-time chat collaboration app, benchmarking Slack, supporting channel chat, private chat, real-time messaging, file upload and permission management, with top international UI/UX standards.',
     technologies: [
       'React',
       'Next.js',
@@ -58,9 +58,9 @@ export const projects: Project[] = [
     title: 'Lumina Shop',
     titleEn: 'Lumina Shop',
     description:
-      '企业级跨端响应式电商平台，具备商品管理、购物车、支付、会员中心等完整功能，设计可参评国际设计奖项，性能与体验超行业标准。',
+      '响应式电商平台，具备商品管理、购物车、支付、会员中心等完整功能，设计可参评国际设计奖项，性能与体验超行业标准。',
     descriptionEn:
-      'Enterprise-level cross-end responsive e-commerce platform with complete functions including product management, shopping cart, payment and member center, eligible for international design awards, with performance and experience beyond industry standards.',
+      'A responsive e-commerce platform with complete functions including product management, shopping cart, payment and member center, eligible for international design awards, with performance and experience beyond industry standards.',
     technologies: ['Next.js', 'TypeScript', 'TailwindCSS', 'PWA', 'Stripe'],
     image:
       'https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=800&h=400&fit=crop',
@@ -82,9 +82,9 @@ export const projects: Project[] = [
     title: 'NovaBoard',
     titleEn: 'NovaBoard',
     description:
-      '企业级项目管理与Issue追踪平台，融合Trello可视化与Jira企业能力，支持多视图看板、实时协作、自动化工作流与细粒度权限控制。',
+      '项目管理与 Issue 追踪平台，融合 Trello 可视化与 Jira 企业能力，支持多视图看板、实时协作、自动化工作流与细粒度权限控制。',
     descriptionEn:
-      'Enterprise-level project management and issue tracking platform, integrating Trello visualization and Jira enterprise capabilities, supporting multi-view kanban, real-time collaboration, automated workflow and fine-grained permission control.',
+      'A project management and issue tracking platform, integrating Trello visualization and Jira enterprise capabilities, supporting multi-view kanban, real-time collaboration, automated workflow and fine-grained permission control.',
     technologies: [
       'React',
       'TypeScript',
@@ -111,9 +111,9 @@ export const projects: Project[] = [
     title: 'NexusHR',
     titleEn: 'NexusHR',
     description:
-      '企业级跨端人事管理平台，覆盖员工、考勤、薪酬、绩效、招聘全模块，支持数据可视化与RBAC细粒度权限，设计极简轻奢、符合无障碍标准。',
+      '人事管理平台，覆盖员工、考勤、薪酬、绩效、招聘全模块，支持数据可视化与RBAC细粒度权限，设计极简轻奢、符合无障碍标准。',
     descriptionEn:
-      'Enterprise-level cross-end HR management platform covering all modules of employee, attendance, salary, performance and recruitment, supporting data visualization and RBAC fine-grained permissions, with minimal luxury design and accessibility compliance.',
+      'A HR management platform covering all modules of employee, attendance, salary, performance and recruitment, supporting data visualization and RBAC fine-grained permissions, with minimal luxury design and accessibility compliance.',
     technologies: [
       'React 19',
       'Next.js 15',
