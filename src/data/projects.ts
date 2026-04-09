@@ -24,128 +24,122 @@ export interface Project {
 export const projects: Project[] = [
   {
     id: 1,
-    title: 'TaskFlow AI',
-    titleEn: 'TaskFlow AI',
-    description: '一个基于 AI 的任务管理应用，支持智能分类、优先级推荐和团队协作功能。',
-    descriptionEn: 'AI-powered task management app with smart categorization, priority recommendations, and team collaboration.',
-    technologies: ['React', 'TypeScript', 'Node.js', 'MongoDB', 'AI/ML'],
-    image: 'https://images.unsplash.com/photo-1484480974693-6ca0a78fb36b?w=800&h=400&fit=crop',
-    githubUrl: `https://github.com/${SOCIAL_USERNAME.github}/taskflow-ai`,
-    demoUrl: 'https://demo.task-manager.com',
+    title: 'TeamLink',
+    titleEn: 'TeamLink',
+    description:
+      '企业级跨端实时聊天协作应用，对标Slack，支持频道聊天、私聊、实时消息、文件上传与权限管理，UI/UX达国际顶级设计水准。',
+    descriptionEn:
+      'Enterprise-level cross-end real-time chat collaboration app, benchmarking Slack, supporting channel chat, private chat, real-time messaging, file upload and permission management, with top international UI/UX standards.',
+    technologies: [
+      'React',
+      'Next.js',
+      'TypeScript',
+      'TailwindCSS',
+      'WebSocket',
+      'Socket.IO',
+    ],
+    image:
+      'https://images.unsplash.com/photo-1484480974693-6ca0a78fb36b?w=800&h=400&fit=crop',
+    githubUrl: `https://github.com/${SOCIAL_USERNAME.github}/team-link`,
+    demoUrl: 'https://demo.team-link.com',
     featured: true,
     role: '全栈开发',
     roleEn: 'Full-Stack',
     type: 'Web应用',
     typeEn: 'Web App',
-    challenge: '实时AI推荐延迟过高，用户体验差',
-    challengeEn: 'High latency in AI recommendations affected user experience',
-    solution: '引入Redis缓存+流式响应，用户等待时间从3s降至0.5s',
-    solutionEn: 'Redis caching + streaming reduced wait time from 3s to 0.5s'
+    challenge: '高并发下实时消息延迟与在线状态同步不稳定',
+    challengeEn:
+      'Unstable real-time message latency and online status synchronization under high concurrency',
+    solution:
+      '微服务架构+消息队列+缓存优化，消息延迟<100ms，在线状态同步准确率100%',
   },
   {
     id: 2,
-    title: 'ShopMax',
-    titleEn: 'ShopMax',
-    description: '全栈电商平台，包含商品管理、购物车、支付集成和订单追踪功能。',
-    descriptionEn: 'Full-stack e-commerce platform with product management, cart, payment integration, and order tracking.',
-    technologies: ['Next.js', 'Stripe', 'PostgreSQL', 'Redis'],
-    image: 'https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=800&h=400&fit=crop',
-    githubUrl: `https://github.com/${SOCIAL_USERNAME.github}/shopmax`,
+    title: 'Lumina Shop',
+    titleEn: 'Lumina Shop',
+    description:
+      '企业级跨端响应式电商平台，具备商品管理、购物车、支付、会员中心等完整功能，设计可参评国际设计奖项，性能与体验超行业标准。',
+    descriptionEn:
+      'Enterprise-level cross-end responsive e-commerce platform with complete functions including product management, shopping cart, payment and member center, eligible for international design awards, with performance and experience beyond industry standards.',
+    technologies: ['Next.js', 'TypeScript', 'TailwindCSS', 'PWA', 'Stripe'],
+    image:
+      'https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=800&h=400&fit=crop',
+    githubUrl: `https://github.com/${SOCIAL_USERNAME.github}/lumina-shop`,
     demoUrl: 'https://shop.example.com',
     featured: true,
-    role: '技术负责人',
-    roleEn: 'Tech Lead',
+    role: '前端负责人',
+    roleEn: 'Frontend Lead',
     type: 'Web应用',
     typeEn: 'Web App',
-    challenge: '大促期间数据库查询成为瓶颈',
-    challengeEn: 'Database queries became bottleneck during flash sales',
-    solution: '读写分离+SQL优化+QPS从500提升到5000',
-    solutionEn: 'Read-write separation + SQL optimization improved QPS from 500 to 5000'
+    challenge: '首屏加载慢、多端适配不一致、Lighthouse评分偏低',
+    challengeEn:
+      'Slow first screen loading, inconsistent multi-end adaptation, low Lighthouse score',
+    solution:
+      '代码分割+图片优化+懒加载，首屏<1.5s，Lighthouse≥95分，全端完美响应',
   },
   {
     id: 3,
-    title: 'ChatReal',
-    titleEn: 'ChatReal',
-    description: '使用 WebSocket 实现的实时聊天应用，支持群组聊天、文件分享和消息搜索。',
-    descriptionEn: 'Real-time chat app using WebSocket with group chat, file sharing, and message search.',
-    technologies: ['React', 'Socket.io', 'Express', 'Redis'],
-    image: 'https://images.unsplash.com/photo-1531427186611-ecfd6d936c79?w=800&h=400&fit=crop',
-    githubUrl: `https://github.com/${SOCIAL_USERNAME.github}/chatreal`,
-    demoUrl: 'https://chat.example.com',
-    featured: false,
+    title: 'NovaBoard',
+    titleEn: 'NovaBoard',
+    description:
+      '企业级项目管理与Issue追踪平台，融合Trello可视化与Jira企业能力，支持多视图看板、实时协作、自动化工作流与细粒度权限控制。',
+    descriptionEn:
+      'Enterprise-level project management and issue tracking platform, integrating Trello visualization and Jira enterprise capabilities, supporting multi-view kanban, real-time collaboration, automated workflow and fine-grained permission control.',
+    technologies: [
+      'React',
+      'TypeScript',
+      'TailwindCSS',
+      'WebSocket',
+      'Recharts',
+    ],
+    image:
+      'https://images.unsplash.com/photo-1484480974693-6ca0a78fb36b?w=800&h=400&fit=crop',
+    githubUrl: `https://github.com/${SOCIAL_USERNAME.github}/nova-board`,
+    demoUrl: 'https://demo.nova-board.com',
+    featured: true,
     role: '全栈开发',
     roleEn: 'Full-Stack',
     type: 'Web应用',
     typeEn: 'Web App',
-    challenge: '万人同时在线时消息延迟严重',
-    challengeEn: 'Severe message delays with 10k+ concurrent users',
-    solution: 'Redis Pub/Sub + 消息分片，延迟从2s降至100ms',
-    solutionEn: 'Redis Pub/Sub + message sharding reduced latency from 2s to 100ms'
+    challenge: '看板拖拽卡顿、大数据量渲染性能差、实时协作冲突',
+    challengeEn:
+      'Kanban drag lag, poor rendering performance with large data volume, real-time collaboration conflicts',
+    solution: '虚拟列表+性能优化+乐观更新，拖拽零卡顿，支持万级卡片流畅渲染',
   },
   {
     id: 4,
-    title: 'DataLens',
-    titleEn: 'DataLens',
-    description: '用于展示和分析复杂数据集的可视化工具。支持多种图表类型、数据过滤和导出功能。',
-    descriptionEn: 'Visualization tool for complex datasets with multiple chart types, filtering, and export capabilities.',
-    technologies: ['D3.js', 'Vue.js', 'Python', 'Pandas'],
-    image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=400&fit=crop',
-    githubUrl: `https://github.com/${SOCIAL_USERNAME.github}/datalens`,
-    demoUrl: 'https://dataviz.example.com',
-    featured: false,
-    role: '前端开发',
-    roleEn: 'Frontend Dev',
-    type: '数据可视化',
-    typeEn: 'Data Visualization',
-    challenge: '百万级数据点渲染卡顿',
-    challengeEn: 'Rendering lag with million-level data points',
-    solution: 'WebWorker + Canvas分页渲染，实现60fps流畅体验',
-    solutionEn: 'WebWorker + Canvas pagination achieved 60fps'
+    title: 'NexusHR',
+    titleEn: 'NexusHR',
+    description:
+      '企业级跨端人事管理平台，覆盖员工、考勤、薪酬、绩效、招聘全模块，支持数据可视化与RBAC细粒度权限，设计极简轻奢、符合无障碍标准。',
+    descriptionEn:
+      'Enterprise-level cross-end HR management platform covering all modules of employee, attendance, salary, performance and recruitment, supporting data visualization and RBAC fine-grained permissions, with minimal luxury design and accessibility compliance.',
+    technologies: [
+      'React 19',
+      'Next.js 15',
+      'TypeScript',
+      'TailwindCSS v4',
+      'ShadCN UI',
+      'Framer Motion',
+    ],
+    image:
+      'https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=800&h=400&fit=crop',
+    githubUrl: `https://github.com/${SOCIAL_USERNAME.github}/nexus-hr`,
+    demoUrl: 'https://demo.nexus-hr.com',
+    featured: true,
+    role: '前端架构师',
+    roleEn: 'Frontend Architect',
+    type: 'Web应用',
+    typeEn: 'Web App',
+    challenge: '人事数据安全风险高、多租户兼容难、复杂表单体验差',
+    challengeEn:
+      'High HR data security risk, difficult multi-tenant compatibility, poor complex form experience',
+    solution:
+      '数据加密+RBAC权限+一步式表单，安全合规，多租户无缝兼容，操作效率提升60%',
   },
-  {
-    id: 5,
-    title: 'PocketFinance',
-    titleEn: 'PocketFinance',
-    description: '帮助用户追踪和管理个人财务的移动端应用。支持收支记录、预算设置和财务报表生成。',
-    descriptionEn: 'Mobile app for tracking and managing personal finances with expense logging, budget setting, and report generation.',
-    technologies: ['React Native', 'Firebase', 'Chart.js'],
-    image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=400&fit=crop',
-    githubUrl: `https://github.com/${SOCIAL_USERNAME.github}/pocketfinance`,
-    demoUrl: null,
-    featured: false,
-    role: '独立开发',
-    roleEn: 'Solo Dev',
-    type: '移动应用',
-    typeEn: 'Mobile App',
-    challenge: '离线数据同步冲突',
-    challengeEn: 'Offline data sync conflicts',
-    solution: 'CRDT算法实现离线优先，数据0丢失',
-    solutionEn: 'CRDT algorithm ensured zero data loss with offline-first'
-  },
-  {
-    id: 6,
-    title: 'DocGen',
-    titleEn: 'DocGen',
-    description: '自动生成 API 文档的工具，支持多种框架和自定义模板。帮助团队快速维护接口文档。',
-    descriptionEn: 'API documentation generator supporting multiple frameworks and custom templates for teams.',
-    technologies: ['TypeScript', 'Express', 'Handlebars'],
-    image: 'https://images.unsplash.com/photo-1516116216624-53e697fedbea?w=800&h=400&fit=crop',
-    githubUrl: `https://github.com/${SOCIAL_USERNAME.github}/docgen`,
-    demoUrl: 'https://apidocs.example.com',
-    featured: false,
-    role: '全栈开发',
-    roleEn: 'Full-Stack',
-    type: '开发者工具',
-    typeEn: 'Dev Tool',
-    challenge: '文档更新不及时，与代码不同步',
-    challengeEn: 'Documentation not synced with code updates',
-    solution: 'CI/CD集成，代码提交自动生成文档',
-    solutionEn: 'CI/CD integration auto-generates docs on commit'
-  }
 ]
 
-export const featuredProjects = projects.filter(p => p.featured)
-
+export const featuredProjects = projects.filter((p) => p.featured)
 // 技术栈数据
 export const techStack = [
   { name: 'React', years: 5, color: '#61DAFB' },
